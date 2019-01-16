@@ -8,6 +8,8 @@ from tqdm import tqdm
 from model import post
 from model import BotBehaviour
 from model import *
+from infer_fnc import *
+from infer_fnc import inferencing
 
 global tempS
 tempSelf=3
@@ -21,13 +23,31 @@ class text_spacy:
 	def __init__(self):
 		relationpropertydate = ""
 		self.cBit2 = 0
+		self.tempTime2 = []
 
 	def foo(self):
 		# global cBit3
 		#global tempSelf
 		#global cBit2
+		# ctempTime3 = self.tempTime2
 		cBit3=self.cBit2
 		return cBit3
+
+	def fooList(self):
+		# global cBit3
+		#global tempSelf
+		#global cBit2
+		ctempTime3 = self.tempTime2
+		# print ("time List" , ctempTime3)
+		return ctempTime3
+	
+	# def infChecker():
+	# 	if (self.cBit2!= 0):
+	# 		tempTime = abc.times(subjectClear , objectClear , relationclear)
+	# 		print("check inference time funct called......")
+	# 		self.tempTime2 = tempTime
+	# 	return self.tempTime2
+
 
 	def function_spacy(self,docx12):
 		cBit3=0
@@ -39,7 +59,7 @@ class text_spacy:
 		
 		timeProperty = ""
 		institute = ""
-
+    
 		#global upper
 		value_doc = docx12
 		nlp = spacy.load('en_core_web_sm')
@@ -185,6 +205,7 @@ class text_spacy:
 		#post.createNode(upper ,seond, relationclear, relationproperty, relationpropertydate, institute, "subject" , "object")
 		#post.askQ()
 		# self.cBit2=post.validateInfo(institute , timeProperty , subjectClear ,objectClear)
+
 		self.cBit2=post.validateInfo(institute , timeProperty )
 		if (self.cBit2==0):
 			tempSelf = self.cBit2
@@ -201,10 +222,26 @@ class text_spacy:
 		else:
 			print("Flag -1 ... incomplete info")
 			tempSelf=self.cBit2
+
 			#print("Value of tempSelf is :", tempSelf)
 			#text_spacy.foo(cBit2)
+		if (self.cBit2!= 0):
+			abc = inferencing()
+			tempTime = []
+			tempTime = abc.times(subjectClear , objectClear , relationclear)
+			print("check inference time funct called......")
 
-		return self.cBit2
+			for i in range(len(tempTime)):
+				print ("time Inferenced yoyoyoyo" ,tempTime[i])
+			self.tempTime2 = tempTime
+		return self.tempTime2
+
+
+		
+
+# abc = inferencing()
+# 			tempTime = abc.times(subjectClear , objectClear , relationclear)
+# 			self.tempTime2 = tempTime
 
 		#return cBit3
 
@@ -229,6 +266,8 @@ class text_spacy:
 
 # abc = post()
 # show = abc.showallnode()
+
+
 
 
 

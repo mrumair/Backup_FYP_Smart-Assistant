@@ -5,6 +5,9 @@ from model import post
 from model import BotBehaviour
 from model import *
 from spacy1122 import *
+from infer_fnc import *
+from infer_fnc import inferencing
+
 db = GraphDatabase("http://localhost:11012", username="neo4j", password="neo4j")
 app = Flask(__name__ , template_folder='template')
 
@@ -30,10 +33,14 @@ def myForm():
 	text = request.form['text_store']
 	textspacy.function_spacy(text)
 	cBit6 = textspacy.foo()
+	ctempTime6 = textspacy.fooList()
+	for i in range(0, len(ctempTime6)):
+		print("Time inferencing values : ", ctempTime6[i])
 	print("Value of cBit6: ",cBit6)
 	#cBit6 = post.checkBit()
 	if (cBit6==1):
 		tempS = "Please Enter Venue of Meeting!"
+
 
 	# elif (cBit6 == 22):
 	# 	tempS = "Please Enter the Object of Meeting!"
@@ -61,13 +68,13 @@ def myForm():
 	respVar = tempS
 	text_Show = text
 	showText = text_Show
-	return render_template("index.html", respVar = respVar , showText = showText )
+	return render_template("index.html", respVar = respVar , showText = showText  , ctempTime6 = ctempTime6)
 #	return render_template('index.html')
 
-@app.route('/show')
+@app.route('/res')
 def myForm2():
-	showVar = show
-	return render_template("index.html", showVar = showVar)
+	
+	return render_template("newStore.html")
 		#return render_template('index.html')
 		
 

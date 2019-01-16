@@ -15,12 +15,20 @@
     <link rel="stylesheet" href="static/vendors/themify-icons/css/themify-icons.css">
    
     <link rel="stylesheet" href="static/vendors/jqvmap/dist/jqvmap.min.css">
+     <!-- <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.min.css">
+ -->
 
-
+ <link rel="stylesheet" href="static/css/primitive.css">
     <link rel="stylesheet" href="static/assets/css/style.css">
  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <!-- <script src="static/js/scripts.js"></script> -->
+
+
 <script>
+
 $(document).ready(function(){
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
@@ -208,89 +216,13 @@ $(document).ready(function(){
             </div>
 
 
-</br> <br>
-                    <h3>Backup!</h3> <br>
 
-                                       <div class="alert alert-success" role="alert" >
-                        <h4 class="alert-heading" id = "hText">
+</br>
+                    <h3>Alert!</h3> 
+          
+                                       <div class="alert alert-success
 
-                        
-                            
-                              
-                        </h4>
-                    </div> 
-
-
-</br> <br>
-                    <h3>Your Query!</h3> <br>
-
-                                       <div class="alert alert-success" role="alert" >
-                        <h4 class="alert-heading" id = "hText">
-
-                            {{showText}}
-                            
-                              
-                        </h4>
-                    </div>  
-
-
-                    <h3>Prompt!</h3> <br>
-
-                                       <div class="alert alert-success"  role="alert">
-                        <h4 class="alert-heading">
-
-                            {{showPrompt}}
-                            
-                              
-                        </h4>
-                    </div>        
-      
-
-        <form action = "" method="POST" id = "myForm">
-             <div class="form-group">
-                <label class=" form-control-label"><br><h3>Enter Information</h3><br></label><br>
-                    <div class="input-group"style="width:1100px">
-                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                            <br><input class="form-control" name="text_store" id = "inputText" 
-                            value = "{{showText}}">
-                        <div class="col-6 col-md-3">
-                  <BUTTON  onclick="pushArray()" class="btn btn-block btn-lg btn-primary"> Submit </BUTTON>
-                </div>
-                    </div>
-                </div>
-            </form>
-           
-
-
-
-<script >
-    var myarr = ["A" , "B", "C" , "D"];
-
-    function pushArray(){
-        var input_Text = document.getElementById('inputText').value;
-        myarr.push(input_Text);
-        var pval = "";
-        for ( i=0 ; i< myarr.length ; i++){
-            pval = pval +myarr[i] +"<br/>";
-
-        }
-
-        document.getElementById("hText").innerHTML  = pval
-    }
-</script>
-                    </br>
-                    <h3>Alert!</h3> <br>
-            <!-- <table border = 1>
-
-             {% for itn in respVar %}
-        
-            <tr>
-               <td> {{ itn }} </td>
-            </tr>
-            
-             {% endfor %}
-            </table> -->
-                                       <div class="alert alert-success" role="alert">
+                                       " role="alert">
                         <h4 class="alert-heading">
 
                             {{respVar}}
@@ -310,8 +242,153 @@ $(document).ready(function(){
                         </h4>
                     </div>
 
+
+    <form action = "" method="POST" id = "myForm">
+             <div class="form-group">
+                <label class=" form-control-label"><h3>Enter Information</h3></label>
+                    <div class="input-group"style="width:1100px">
+                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                            <br><input class="form-control" name="text_store" id = "inputText" 
+                            value = "{{showText}}">
+                        <div class="col-6 col-md-3">
+                  <BUTTON  class="btn btn-block btn-lg btn-primary"> Submit </BUTTON>
+
+
+
+
+
+<!-- 
+
+
+
+onclick="pushArray()"  -->
+
+
+
+                    </div>
+                </div>
+            </form>
+           
+ 
+
+                
+            </div>
+
+    </div> 
+
+
+       <h5>show Suggestion!</h5>
+<div class="alert alert-success" role="alert" >
+                        <h4 class="alert-heading" id = "hText">
+     
+                        </h4>
+                                   <table border = 1>
+
+             {% for itn in ctempTime6 %}
+         
+            <tr>
+               <td> {{ itn }} </td>
+            </tr>
+            
+             {% endfor %}
+            </table>
+
+                        </h4>
+                    </div>
+                    <h5>Backup!</h5> 
+
+                                       <div class="alert alert-success" role="alert" >
+                        <h4 class="alert-heading" id = "hText">
+     
+                        </h4>
+                    </div> 
+
+                    <h5>Your Query!</h5>
+
+                                       <div class="alert alert-success" role="alert" >
+                        <h4 class="alert-heading" id = "hText">
+
+                            {{showText}}
+                            
+                              
+                        </h4>
+                    </div>  
+
+
+                    <h5>Prompt!</h5>
+
+                                       <div class="alert alert-success"  role="alert">
+                        <h4 class="alert-heading">
+
+                            {{showPrompt}}
+                            
+                              
+                        </h4>
+                    </div>   
+
+                    <br>
+
+           <!--  <div class="col-6 col-md-3"><form action="http://localhost:5000/res">
+    <input type="submit" value="Check Status" class="btn btn-block btn-lg grey" />
+</form></div> -->
+
+      
+
+    
+
+
+
+<!-- <div class="small-container">
+    <script src="static/js/scripts.js"></script>
+    <h1>New Tab App</h1>
+
+    <form>
+      <input id="item" type="text" placeholder="New">
+    </form>
+
+    <h2>Items</h2>
+    <ul></ul>
+
+    <button>Clear All</button>
+  </div>
+
+  
+
+
+
+<script >
+    var myarr = ["A" , "B", "C" , "D"];
+
+    function pushArray(){
+        var input_Text = document.getElementById('inputText').value;
+        myarr.push(input_Text);
+        var pval = "";
+        for ( i=0 ; i< myarr.length ; i++){
+            pval = pval +myarr[i] +"<br/>";
+
+        }
+
+        document.getElementById("hText").innerHTML  = pval
+    }
+</script> -->
                     
- <script src="static/showback/js/scripts.js"></script>
+
+
+
+
+<!-- <form>
+      <input id="item" type="text" placeholder="New">
+    </form>
+                </div>
+                <h2>Items</h2>
+                  <ul>
+                     
+                  </ul>
+
+
+                  <button>Clear All</button> -->
+
+<!--  <script src="static/showback/js/scripts.js"></script> -->
 <!-- 
 
 
@@ -344,7 +421,7 @@ $(document).ready(function(){
  
 
 
-</br> <br>
+<!-- </br> <br>
                     <h3>ShowName!</h3> <br>
 
                                        <div class="alert alert-success" role="alert">
@@ -359,7 +436,10 @@ $(document).ready(function(){
                 
             </div>
 
-    </div><!-- /#right-panel -->
+    </div> -->
+
+
+        <!-- /#right-panel -->
 
     <!-- Right Panel -->
 
@@ -367,8 +447,9 @@ $(document).ready(function(){
     <script src="static/vendors/popper.js/dist/umd/popper.min.js"></script>
     <script src="static/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="static/assets/js/main.js"></script>
+  <!--   <script src="static/js/scripts.js"></script>
 
-
+ -->
     <script src="static/vendors/chart.js/dist/Chart.bundle.min.js"></script>
     <script src="static/assets/js/dashboard.js"></script>
     <script src="static/assets/js/widgets.js"></script>

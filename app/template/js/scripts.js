@@ -15,17 +15,11 @@ const liMaker = (text) => {
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  
-   itemsArray.push(input.value);
+
+  itemsArray.push(input.value);
   localStorage.setItem('items', JSON.stringify(itemsArray));
   liMaker(input.value);
   input.value = "";
-
-  // tempVar = text_store.value
-  // itemsArray.push(tempVar);
-  // localStorage.setItem('items', JSON.stringify(itemsArray));
-  // liMaker(tempVar);
-  // tempVar = "";
 });
 
 data.forEach(item => {

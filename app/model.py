@@ -103,7 +103,6 @@ class post:
 
     return cBit
 
-
   # def checkBit()
   #   if 
       
