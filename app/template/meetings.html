@@ -82,9 +82,9 @@
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Meetings</a>
                         <ul class="sub-menu children dropdown-menu">
-                           <li><i class="menu-icon fa fa-tasks"></i><a href="http://localhost:5000/">Schedule a New Meeting</a>
-                           </li>
+                            <li><i class="menu-icon fa fa-tasks"></i><a href="http://localhost:5000/">Schedule a New Meeting</a></li>
                             <li><i class="menu-icon fa fa-tasks"></i><a href="http://localhost:5000/meetings">Scheduled Meetings</a></li>
+                            <!-- <li><i class="menu-icon fa fa-tasks"></i><a href="#">History</a></li> -->
                         </ul>
                     </li>
                     <li>
@@ -215,34 +215,26 @@
         <div class="content mt-3" style="background-color: #fbfbfb"> 
  
 
-            <!-- <div class="col-sm-12">
-                <div class="alert  alert-success alert-dismissible fade show" role="alert">
-                    <span class="badge badge-pill badge-success">Success</span> Your account is activated!
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            </div> -->
 
-            <div class="col-sm-12" style="background-color: #fbfbfb">
+        <div class="col-sm-12" style="background-color: #fbfbfb">
                 <h3 style="color: #0197e1; background-color: #fbfbfb; margin-top: 
-                10px; margin-bottom: 20px;">Schedule Your Meeting</h2>
+                10px; margin-bottom: 20px;">Your Scheduled Meetings</h2>
             </div>
 
 
+
             <!-- inserting new objects -->
+            <div class="col-md-12" style="background-color: #444; height: 400px;">
 
-
-            <div class="col-md-12">
-                <div class="col-md-8" style="background-color: #444; height: 440px;">
-
-                    <div class="alert alert-success" role="alert" style="height: 350px; margin-top: 10px; background-color:#E3E3E3; overflow: auto;">
+                <div class="col-md-12" style="background-color: #444; height: 330px; margin-top: 10px;">
+                    
+                     <div class="alert alert-success" role="alert" style="height: 320px; margin-top: 5px; background-color:#E3E3E3; overflow: auto;">
                     <h4 class="alert-heading" id = "hText" style="color: black; font-weight: lighter;">
 
 
                             <table border="3" style="border-color: #444;">
 
-                             {% for itn in ip %}
+                             {% for itn in meetTemp %}
                          
                             <tr>
                                <td> {{ itn }} </td>
@@ -255,40 +247,31 @@
                         </h4>
                     </div>
 
+                </div>
 
+                <div class="col-md-12" style="background-color: #444; height: 50px; margin-top: 5px;">
+                    
                     <form action = "" method="POST" id = "myForm">
                             <div class="form-group">
                                 <!-- <label class=" form-control-label"><h3>Enter Information</h3></label> -->
-                                <div class="input-group" style="background-color: #0197e1; height: 40px; padding-right: 0px;">
+                                <div class="input-group" style="background-color: #0197e1; height: 40px; padding-right: 0px; margin-top: 5px;">
                                     <!-- <div class="input-group-addon"><i class="fa fa-calendar"></i></div> -->
                                     <!-- <br> -->
-                                    <input class="form-control" name="text_store" id = "inputText" style="height: 40px;" placeholder="Start Scheduling" 
-                                    value = "{{showText}}">
+                                    <input class="form-control" name="subName" id = "subText" style="height: 40px;" placeholder="Enter Your Name">
                                     <div class="col-6 col-md-3">
                                         <BUTTON  class="btn btn-block btn-lg btn-primary" style="height: 40px; color:white; background-color: #0197e1; vertical-align: center; padding-top: 5px; margin-right: 0px; font-weight: bold;"> Submit </BUTTON>
                                     </div>
                                 </div>
                             </div>
                     </form>
-                </div>
-                <div class="col-md-4" style="background-color: #444; height: 440px;">
-                    <div class="alert alert-success" role="alert" style="height: 350px; margin-top: 10px; background-color:#E3E3E3;" >
-                    <h4 class="alert-heading" id = "hText">
-
-                           
-                            
-                              <!-- this is Suggestions -->
-                    </h4>
-                    </div>
-                    <div style="background-color: #444;">
-                        <h4 style="color: #0197e1; text-align: center; padding-top: 5px;">Suggestions</h4>
-                    </div>
 
 
                 </div>
+                
             </div>
 
-<br>
+
+           
 
            
         

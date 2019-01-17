@@ -7,16 +7,35 @@ from model import *
 from spacy1122 import *
 from infer_fnc import *
 from infer_fnc import inferencing
+from meetList import *
 
-db = GraphDatabase("http://localhost:11012", username="neo4j", password="neo4j")
+db = GraphDatabase("http://localhost:11002", username="neo4j", password="neo4j")
 app = Flask(__name__ , template_folder='template')
 
 Bootstrap(app)
 ip = []
 osystem = []
+
 @app.route('/') 
 def index():    
 	return  render_template('index.html')
+
+@app.route('/meetings')
+def showAll():
+	return render_template('meetings.html')
+
+
+@app.route('/meetings', methods=['GET', 'POST'])
+def showMeet():
+	tempSub = request.form['subName']
+	#print("subject: ", tempSub)
+	meetTemp=[]
+	meetTemp=meet_list(tempSub, "meeting")
+	#print("printing hahahah")
+	# for i in range(len(meetTemp)):
+	# 	print("M: ", meetTemp[i])
+	return render_template('meetings.html', meetTemp=meetTemp)
+
 
 global flagBit4
 textspacy = text_spacy()
@@ -43,7 +62,7 @@ def myForm():
 	#cBit6 = post.checkBit()
 	if (cBit6==1):
 		tempS = "Please Enter Venue of Meeting!"
-		tempPrompt = "Where u Want to Meet?"
+		tempPrompt = "WHERE you want to meet?"
 
 
 	# elif (cBit6 == 22):
@@ -55,15 +74,15 @@ def myForm():
 
 	elif (cBit6 == 7):
 		tempS = "Please Enter the Time of Meeting!"
-		tempPrompt = "When u want to Meet?"
+		tempPrompt = "WHEN you want to meet?"
 	elif(cBit6 == 4):
 		tempS = "Please Enter the Time and Venue of Meeting!"
-		tempPrompt = "When and Where u Want to Meet?"
+		tempPrompt = "WHEN and WHERE you want to meet?"
 	# elif(cBit6 == 9):
 	# 	tempS = "Please All the Time and Venue of Meeting!"
 	else :
 		tempS = "Complete Information! Your information has been saved!!"
-		tempPrompt = "Great! Your Meeting has been Successfully Scheduled!"
+		tempPrompt = "Great! Your Meeting has been Successfully SCHEDULED!!"
 		text_Edit = ""
 
 

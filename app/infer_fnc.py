@@ -5,7 +5,7 @@ import re
 import spacy
 import en_core_web_sm
 
-db = Graph("http://localhost:11012", username="neo4j", password="neo4j")
+db = Graph("http://localhost:11002", username="neo4j", password="neo4j")
 
 
 class inferencing:   

@@ -9,7 +9,7 @@ from py2neo import Graph, Node, Relationship
 from neo4jrestclient import client
 #from pandas import DataFrame
 
-graph = Graph("http://localhost:11012", username="neo4j", password="neo4j")
+graph = Graph("http://localhost:11002", username="neo4j", password="neo4j")
 
 #global flagBit
 #flagBit = 0

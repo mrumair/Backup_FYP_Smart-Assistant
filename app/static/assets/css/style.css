@@ -1,3 +1,4 @@
+
 /* This css file is to over write bootstrap css
 --------------------------------------------------------- /
 * Theme Name: Sufee-Admin Admin Template
@@ -14,7 +15,8 @@
 @charset "UTF-8";
 
 /*!
- * animate.css -http://daneden.me/animate
+ * animate.css -ht.right-panel header.header
+ tp://daneden.me/animate
  * Version - 3.7.0
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  *
@@ -1001,7 +1003,7 @@ textarea {
   width: 100%; }
 
 aside.left-panel {
-  background: #272c33;
+  background: #444;
   display: table-cell;
   height: 100vh;
   min-height: 100%;
@@ -1012,7 +1014,7 @@ aside.left-panel {
   transition: width 0.3s ease; }
 
 .navbar {
-  background: #272c33;
+  background: #444;
   border-radius: 0;
   border: none;
   display: block;
@@ -1076,7 +1078,7 @@ aside.left-panel {
         display: none; }
       .navbar .navbar-nav li > a {
         background: none !important;
-        color: #c8c9ce !important;
+        color: #ffffff !important;
         display: inline-block;
         font-family: 'Open Sans';
         font-size: 14px;
@@ -1088,7 +1090,7 @@ aside.left-panel {
         .navbar .navbar-nav li > a:hover .menu-icon {
           color: #fff !important; }
         .navbar .navbar-nav li > a .menu-icon {
-          color: #8b939b;
+          color: #fff;
           float: left;
           margin-top: 8px;
           width: 55px;
@@ -1121,7 +1123,7 @@ aside.left-panel {
           .navbar .navbar-nav li.menu-item-has-children a:hover:before {
             color: #fff; }
         .navbar .navbar-nav li.menu-item-has-children .sub-menu {
-          background: #272c33;
+          background: #0D0D0D;
           border: none;
           box-shadow: none;
           overflow-y: hidden;
@@ -1294,7 +1296,7 @@ body.open .navbar .navbar-brand.hidden {
       content: "/\00a0"; }
 
 .right-panel header.header {
-  background: #fff;
+  background: #0D0D0D;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   clear: both;
   display: inline-block;
@@ -1312,7 +1314,7 @@ header.fixed-top {
   position: inherit; }
 
 .menutoggle {
-  background: #e74c3c;
+  background: #0197e1;
   border-radius: 50%;
   color: #fff !important;
   cursor: pointer;
