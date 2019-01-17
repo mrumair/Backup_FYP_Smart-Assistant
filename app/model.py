@@ -9,7 +9,7 @@ from py2neo import Graph, Node, Relationship
 from neo4jrestclient import client
 #from pandas import DataFrame
 
-graph = Graph("http://localhost:11002", username="neo4j", password="neo4j")
+graph = Graph("http://localhost:11012", username="neo4j", password="neo4j")
 
 #global flagBit
 #flagBit = 0
@@ -32,7 +32,9 @@ class post:
     rel_type = relation
     Time_prop = propTime
     Venue_prop = propVenue
-    query = 'match (u:Again{name :{subs}}), (r:Again{name:{objs}}) create (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r) return n'
+    query =  'MERGE (u1:Again { name: {subs} }) MERGE (u2:Again { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep}}]-(u2)'
+    # MERGE (user:Again {name:"Jane"}) MERGE (friend:Again {name:"John"}) MERGE (user)-[r:KNOWS]->(friend)
+    # query = 'MERGE (u:Again{name :{subs}}) MERGE(r:Again{name:{objs}}) MERGE   (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r)'
     post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop )
     print ("relation created")
     print (post.data())

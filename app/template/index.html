@@ -277,7 +277,62 @@
 
                            
                             
+
                               <!-- this is Suggestions -->
+
+
+
+                            <table>
+
+                             {% for itn in ctempTime6 %}
+                         
+                            <tr>
+                               <td>
+
+
+
+
+
+
+
+
+
+                            <form action = "" method="POST" id = "myForm">
+
+                                <div class="input-group">
+                                    <input class="form-control" value = "{{itn}}" name = "SuggestText" style="height: 40px; background-color: #E3E3E3; border-color: #0197e1; border-radius: 2;" disabled="true" 
+                                    >
+                                    <span class="input-group-btn" style="height: 40px;">
+                                        <button class="btn btn-primary" style="background-color: #0197e1; font-weight: bold; height: 40px;">Select</button>
+                                    </span>
+                                </div>
+                            </form>
+
+
+                                
+
+
+                            <!-- <div class="col-md-12" style="background-color: green; height: 40px;"> -->
+
+
+                               <!--  <div class="col-md-8" style="background-color: yellow; height: 40px;"> 
+
+
+                                </div>
+                                <div class="col-md-4" style="background-color: blue; height: 40px;">  
+
+
+                                </div>
+ -->
+                            </div>
+                            </form>
+                            </div>
+
+                               </td>
+                            </tr>
+                            
+                             {% endfor %}
+                            </table>
                     </h4>
                     </div>
                     <div style="background-color: #444;">
@@ -285,10 +340,13 @@
                     </div>
 
 
+
                 </div>
             </div>
 
 <br>
+
+
 
            
         
