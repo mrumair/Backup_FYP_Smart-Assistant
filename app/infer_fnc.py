@@ -22,7 +22,6 @@ class inferencing:
         time_list=[]
         time_query='MATCH (a:Again)-[r]->(b:Again) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.time)'
         results = db.run(time_query, name_a=p1, name_b=p2, rl="meet",r_name=rel)
-      
         for r in results:
             time_list=r[0]
         print ("function lIst" , time_list)
