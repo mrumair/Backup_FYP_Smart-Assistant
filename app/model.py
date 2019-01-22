@@ -19,22 +19,22 @@ class post:
   def createNodeQueru(subjects , propertys):
     node = subjects
     type_s = propertys
-    query= 'MERGE (n:Again {name:{sname} , type: {type}}) RETURN n.name' 
+    query= 'MERGE (n:UserMeeting {name:{sname} , type: {type}}) RETURN n.name' 
     post=graph.run(query,sname=node , type = propertys ) 
     print("node creates") 
     print(post.data())
     
     #neo4jupyter.draw(graph_object_py2neo, {"Nodes_type": "Att"})
-    #DataFrame(graph.data("MATCH (a) RETURN a.name"))
+    #DataFrame(graph.data("MATCH (a) RETURN a.name"))d
   def createqueryrelation(subjct , objct , relation , propTime , propVenue):
     sub = subjct
     obj = objct
     rel_type = relation
     Time_prop = propTime
     Venue_prop = propVenue
-    query =  'MERGE (u1:Again { name: {subs} }) MERGE (u2:Again { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep}}]-(u2)'
-    # MERGE (user:Again {name:"Jane"}) MERGE (friend:Again {name:"John"}) MERGE (user)-[r:KNOWS]->(friend)
-    # query = 'MERGE (u:Again{name :{subs}}) MERGE(r:Again{name:{objs}}) MERGE   (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r)'
+    query =  'MERGE (u1:UserMeeting { name: {subs} }) MERGE (u2:UserMeeting { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep}}]-(u2)'
+    # MERGE (user:UserMeeting {name:"Jane"}) MERGE (friend:UserMeeting {name:"John"}) MERGE (user)-[r:KNOWS]->(friend)
+    # query = 'MERGE (u:UserMeeting{name :{subs}}) MERGE(r:UserMeeting{name:{objs}}) MERGE   (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r)'
     post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop )
     print ("relation created")
     print (post.data())
@@ -43,7 +43,7 @@ class post:
   def setProperty(labeln , propertyn):
     lab= labeln
     prop=propertyn
-    query = 'MERGE (n:Again{name :{labs}}) set n.name = {pros}'
+    query = 'MERGE (n:UserMeeting{name :{labs}}) set n.name = {pros}'
     post = graph.run(query, labs=lab , pros = propo)
     print ("Updating")
     print(post.data())
@@ -52,7 +52,7 @@ class post:
     sub = subject
     rel = relation
     time = Time
-    query = 'MATCH (a:Again{name : {subs}})-[r:meet{name:{rels}}]->() set r.Time = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
+    query = 'MATCH (a:UserMeeting{name : {subs}})-[r:meet{name:{rels}}]->() set r.Time = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
     post = graph.run(query , subs = sub , rels = rel  , tim = time)
     print ("time updated")
     print(post.data())
@@ -61,7 +61,7 @@ class post:
     sub = subject
     rel = relation
     date = Date
-    query = 'MATCH (a:Again{name : {subs}})-[r:meet{name:{rels}}]->() set r.Date_is = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
+    query = 'MATCH (a:UserMeeting{name : {subs}})-[r:meet{name:{rels}}]->() set r.Date_is = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
     post = graph.run(query , subs = sub , rels = rel  , tim = date)
     print ("date updated")
     print(post.data())
@@ -71,7 +71,7 @@ class post:
     sub = subject
     rel = relation
     venue = Venue
-    query = 'MATCH (a:Again{name : {subs}})-[r:meet{name:{rels}}]->() set r.Venue = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
+    query = 'MATCH (a:UserMeeting{name : {subs}})-[r:meet{name:{rels}}]->() set r.Venue = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
     post = graph.run(query , subs = sub , rels = rel  , tim = venue)
     print ("time updated")
     print(post.data())
@@ -81,7 +81,7 @@ class post:
 
 
   #definning functionss for validation
-  def validateInfo( institute , timep ):
+  def validateInfo( institute , timep):
     cBit=0
     if (institute==""):
       #listStore3 = "Please Enter complete Information"
@@ -93,13 +93,10 @@ class post:
 
     # if (subjectv == ""):
     #   cBit = 2
+  
 
-    # if(objectv =="" ):
-    #   cBit = 22
-
-    if (institute =="" and timep == ""):
+    if (institute =="" and timep == "" ):
       cBit = 4
-
     # if (institute =="" and timep == "" and objectv == "" and subjectv == ""):
     #   cBit = 9
 
@@ -110,7 +107,13 @@ class post:
       
 
    
-
+  # def validateSubObj( subjectv , objectv):
+  #   cBits = 0
+  #   if(subjectv == ""):
+  #     cBits = 1
+  #   if(objectv == ""):
+  #     cBits =2
+  #   return cBits
 
 
 
@@ -209,7 +212,7 @@ class BotBehaviour:
     aVenue = ""
     #print("starting of the function")
 
-    q= 'MATCH (n:Again) WHERE NOT (n)--() RETURN n'
+    q= 'MATCH (n:UserMeeting) WHERE NOT (n)--() RETURN n'
     results=graph.run(q)
     print("Result:", list(results))
 
@@ -227,13 +230,13 @@ class BotBehaviour:
     else:
       print("not found the empty node")
 
-      a= 'start n=node(*) match (n:Again)-[r:meet]-(:Again) where exists(r.venue) return r'
+      a= 'start n=node(*) match (n:UserMeeting)-[r:meet]-(:UserMeeting) where exists(r.venue) return r'
       #resultV = graph.query(a, returns=(client.Relationship))
 
-      b= 'start n=node(*) match (n:Again)-[r:meet]-(:Again) where exists(r.time) return r'
+      b= 'start n=node(*) match (n:UserMeeting)-[r:meet]-(:UserMeeting) where exists(r.time) return r'
       #resultT = graph.query(b, returns=(client.Relationship))
 
-      c= 'start n=node(*) match (n:Again)-[r:meet]-(:Again) where exists(r.name) return r'
+      c= 'start n=node(*) match (n:UserMeeting)-[r:meet]-(:UserMeeting) where exists(r.name) return r'
       #resultN = graph.query(c, returns=(client.Relationship))
       
       # for r in resultV:

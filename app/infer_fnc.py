@@ -11,7 +11,7 @@ db = Graph("http://localhost:11012", username="neo4j", password="neo4j")
 class inferencing:   
     def locations(self, p1,p2,rel):
         loc_list=[]
-        location_query='MATCH (a:Again)-[r]->(b:Again) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.venue)'
+        location_query='MATCH (a:UserMeeting)-[r]->(b:UserMeeting) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.venue)'
         results = db.run(location_query, name_a=p1, name_b=p2, rl="meet",r_name=rel)
         for r in results:
             loc_list=r[0]
@@ -20,7 +20,7 @@ class inferencing:
     def times(self,p1,p2,rel):
         print(p1,p2,rel)
         time_list=[]
-        time_query='MATCH (a:Again)-[r]->(b:Again) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.time)'
+        time_query='MATCH (a:UserMeeting)-[r]->(b:UserMeeting) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.time)'
         results = db.run(time_query, name_a=p1, name_b=p2, rl="meet",r_name=rel)
         for r in results:
             time_list=r[0]
@@ -30,7 +30,7 @@ class inferencing:
 
     def dates(self ,p1,p2,rel):
         date_list=[]
-        date_query='MATCH (a:Again)-[r]->(b:Again) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.date)'
+        date_query='MATCH (a:UserMeeting)-[r]->(b:UserMeeting) WHERE type(r)={rl} AND r.name={r_name} AND a.name={name_a} AND b.name={name_b} RETURN collect (distinct r.date)'
         results = db.run(date_query, name_a=p1, name_b=p2,  rl="meet",r_name=rel)
         for r in results:
             date_list=r[0]

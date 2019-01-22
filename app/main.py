@@ -8,6 +8,9 @@ from spacy1122 import *
 from infer_fnc import *
 from infer_fnc import inferencing
 from meetList import *
+from signup import *
+from signup import register_user
+
 
 db = GraphDatabase("http://localhost:11012", username="neo4j", password="neo4j")
 app = Flask(__name__ , template_folder='template')
@@ -60,7 +63,16 @@ def myForm():
 	ctempTime6 = textspacy.fooList()
 	for i in range(0, len(ctempTime6)):
 		print("Time inferencing values : ", ctempTime6[i])
+
+
+	ctempLoc6 = textspacy.fooLocList()
+	for i in range(0, len(ctempLoc6)):
+		print("Location inferencing values : ", ctempLoc6[i])
+
 	print("Value of cBit6: ",cBit6)
+
+	# cBit9 = textspacy.foos()
+	# print ("Value of cBit9 " , cBit9)
 	#cBit6 = post.checkBit()
 	if (cBit6==1):
 		tempS = "Please Enter Venue of Meeting!"
@@ -133,12 +145,74 @@ def myForm():
 	return render_template("index.html", respVar = respVar , showText = showText  , ctempTime6 = ctempTime6 , ip = ip )
 #	return render_template('index.html')
 
-@app.route('/res')
-def myForm2():
+@app.route('/login')
+def indexRegister():
+	return render_template("form2.html")
+
+@app.route('/login' ,  methods=['GET' , 'POST'])
+def Register_form():
+
+
+	# if request.method == 'GET': 
+	uText = request.form['uname']
+
+	# uText = request.form['uname']
+	fText = request.form['fname']
+	lText = request.form['lname']
+	pText = request.form ['password']
+	eText = request.form ['email']
+	nText = request.form ['pnumber']
+
+	register_user.createUser(uText , fText , lText , eText , pText , nText , "student" )
+	print ("student Register")
+	# tText = request.form ['']
+
+
+	# lForm = request.form['login_form']
+
+	# # uText = request.form['uname']
+	# pForm = request.form['login_pass']
 	
-	return render_template("newStore.html")
+
+	# data = register_user.userLogin(lForm , pForm) 
+	# print ("student Register" , data)
+
+	return render_template("form2.html")
+	
 		#return render_template('index.html')
 		
+
+
+# @app.route('/signin')
+# def indexlogin():
+# 	return render_template("form2.html")
+
+# @app.route('/signin' ,  methods=['GET' , 'POST'])
+# def index_login():
+
+
+# 	lForm = request.form['login_form']
+
+# 	# uText = request.form['uname']
+# 	pForm = request.form['login_pass']
+	
+
+# 	data = register_user.userLogin(lForm , pForm) 
+# 	print ("student Register" , data)
+# 	# tText = request.form ['']
+
+
+# 	# lForm = request.form['login_form']
+
+# 	# # uText = request.form['uname']
+# 	# pForm = request.form['login_pass']
+	
+
+# 	# data = register_user.userLogin(lForm , pForm) 
+# 	# print ("student Register" , data)
+
+# 	return render_template("form2.html")
+
 
 
 

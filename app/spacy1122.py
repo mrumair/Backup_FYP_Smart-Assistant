@@ -10,9 +10,11 @@ from model import BotBehaviour
 from model import *
 from infer_fnc import *
 from infer_fnc import inferencing
+from signup import *
 
 global tempS
 tempSelf=3
+tempsSelf = 3
 
 cBit3=3
 cBitMed=3
@@ -22,10 +24,10 @@ cBitMed=3
 class text_spacy:
 	def __init__(self):
 		relationpropertydate = ""
-	
-
 		self.cBit2 = 0
 		self.tempTime2 = []
+		self.tempLoc2 = []
+		self.cBits2 =0
 
 	def foo(self):
 		# global cBit3
@@ -35,6 +37,15 @@ class text_spacy:
 		cBit3=self.cBit2
 		return cBit3
 
+	def foos(self):
+		# global cBit3
+		#global tempSelf
+		#global cBit2
+		# ctempTime3 = self.tempTime2
+		cBits3=self.cBits2
+		return cBits3
+
+
 	def fooList(self):
 		# global cBit3
 		#global tempSelf
@@ -43,6 +54,15 @@ class text_spacy:
 		# print ("time List" , ctempTime3)
 		return ctempTime3
 	
+
+	def fooLocList(self):
+		# global cBit3
+		#global tempSelf
+		#global cBit2
+		ctempLoc3 = self.tempLoc2
+
+		# print ("time List" , ctempTime3)
+		return ctempLoc3
 	# def infChecker():
 	# 	if (self.cBit2!= 0):
 	# 		tempTime = abc.times(subjectClear , objectClear , relationclear)
@@ -58,7 +78,6 @@ class text_spacy:
 		upper = ""
 		seond = ""
 		relationproperty = ""
-		relationpropertydate = ""
 		
 		timeProperty = ""
 		institute = ""
@@ -79,14 +98,10 @@ class text_spacy:
 				 
 				clearsubject = token.text
 			deep = (token.dep_)
-			if deep is 'dobj' or deep is 'conj':
+			if deep is 'dobj':
 				relationship = token.text
-				# print(relationship , "is a relationship")
+				print(relationship , "is a relationship")
 				relationclear = relationship
-			# if deep is 'dobj':
-			# 	relationship = token.text
-			# 	print(relationship , "is a relationship")
-			# 	relationclear = relationship
 				#post.functiona(relationship)
 		person = []
 		#global upper
@@ -94,9 +109,12 @@ class text_spacy:
 			entitites = (num.label_)
 			if entitites is "PERSON":
 				person.append(num.text)
-				upper=person[0]
-				seond=person[-1]
-				print(person , "is lasoknkan")
+				upper="Umair"
+				seond=person[0]
+				#seond=person[-1]
+				print("subject is: ", upper)
+				print("object is: ", seond)
+				#print(person , "is lasoknkan")
 				subjectClear = upper
 				objectClear = seond
 		for token in docx1.ents:
@@ -197,7 +215,46 @@ class text_spacy:
 				print(cardinal , "is a CARDINAL")
 		#		post.functiona(cardinal)
 
+		self.cBit2=post.validateInfo(institute , timeProperty )
+		if (self.cBit2==0):
+			tempSelf = self.cBit2
 
+			#text_spacy.foo(cBit2)			
+			#global cBit3
+			#cBit3=0
+			print("Flag-0 ... Adding the data")
+			post.createNodeQueru(subjectClear , "subject")
+			post.createNodeQueru(objectClear , "object")
+			post.createqueryrelation(subjectClear ,objectClear , relationclear ,timeProperty , institute )
+			#global cBit3
+			#cBit3=1
+		else:
+			print("Flag -1 ... incomplete info")
+			tempSelf=self.cBit2
+
+			#print("Value of tempSelf is :", tempSelf)
+			#text_spacy.foo(cBit2)
+		if (self.cBit2!= 0):
+			abc = inferencing()
+			tempTime = []
+			tempTime = abc.times(subjectClear , objectClear , relationclear)
+			print("check inference time funct called......")
+
+			for i in range(len(tempTime)):
+				print ("time Inferenced yoyoyoyo" ,tempTime[i])
+			self.tempTime2 = tempTime
+		return self.tempTime2
+
+		if (self.cBit2!= 0):
+			xyz = inferencing()
+			temoLoc = []
+			temoLoc = xyz.locations(subjectClear , objectClear , relationclear)
+			print("check location time funct called......")
+
+			for i in range(len(temoLoc)):
+				print ("location Inferenced yoyoyoyo" ,temoLoc[i])
+			self.tempLoc2 = temoLoc
+		return self.tempLoc2
 
 		#print (clearsubject  , "is I we they you")
 		#print (relationclear  , "is exact relationship")
@@ -213,121 +270,58 @@ class text_spacy:
 		#post.askQ()
 		# self.cBit2=post.validateInfo(institute , timeProperty , subjectClear ,objectClear)
 
-		self.cBit2=post.validateInfo(institute , timeProperty , relationpropertydate)
-		if (self.cBit2==0):
-			tempSelf = self.cBit2
+		# self.cBits2 = post.validateSubObj(subjectClear , objectClear)
+		# if (self.cBits2 == 0):
+		# 	tempsSelf = self.cBits2
+		# 	print ("Flag-0 ... Subject Object Added")
 
-			#text_spacy.foo(cBit2)			
-			#global cBit3
-			#cBit3=0
-			print("Flag-0 ... Adding the data")
-			post.createNodeQueru(subjectClear , "subject")
-			post.createNodeQueru(objectClear , "object")
-			# print(relationclear,"is relationclear")
-			post.createqueryrelation(subjectClear ,objectClear , relationclear ,timeProperty , institute ,relationpropertydate)
-			#global cBit3
-			#cBit3=1
-		else:
-			print("Flag -1 ... incomplete info")
-			tempSelf=self.cBit2
+		# 	self.cBit2=post.validateInfo(institute , timeProperty )
+		# 	if (self.cBit2==0):
+		# 		tempSelf = self.cBit2
 
-			#print("Value of tempSelf is :", tempSelf)
-			#text_spacy.foo(cBit2)
-		if (self.cBit2==7):
-			abc = inferencing()
-			tempTime = []
-			tempTime = abc.times(subjectClear , objectClear , relationclear)
-			print("check inference time")
-			for i in range(len(tempTime)):
-				print ("Select" ,tempTime[i])
-			self.tempTime2 = tempTime
+		# 		#text_spacy.foo(cBit2)			
+		# 		#global cBit3
+		# 		#cBit3=0
+		# 		print("Flag-0 ... Adding the data")
+		# 		post.createNodeQueru(subjectClear , "subject")
+		# 		post.createNodeQueru(objectClear , "object")
+		# 		post.createqueryrelation(subjectClear ,objectClear , relationclear ,timeProperty , institute )
+		# 		#global cBit3
+		# 		#cBit3=1
+		# 	else:
+		# 		print("Flag -1 ... incomplete info")
+		# 		tempSelf=self.cBit2
 
-		if (self.cBit2==1):
-			abc = inferencing()
-			tempLoc = []
-			tempLoc = abc.locations(subjectClear , objectClear , relationclear)
-			print("check inference location")
-			for i in range(len(tempLoc)):
-				print ("Select" ,tempLoc[i])
-			self.tempTime2 = tempLoc
+		# 		#print("Value of tempSelf is :", tempSelf)
+		# 		#text_spacy.foo(cBit2)
+		# 	if (self.cBit2!= 0):
+		# 		abc = inferencing()
+		# 		tempTime = []
+		# 		tempTime = abc.times(subjectClear , objectClear , relationclear)
+		# 		print("check inference time funct called......")
 
-		if (self.cBit2==11):
-			abc = inferencing()
-			tempDate = []
-			tempDate = abc.dates(subjectClear , objectClear , relationclear)
-			print("check inference dates")
-			for i in range(len(tempDate)):
-				print ("Select" ,tempDate[i])
-			self.tempTime2 = tempDate
+		# 		for i in range(len(tempTime)):
+		# 			print ("time Inferenced yoyoyoyo" ,tempTime[i])
+		# 		self.tempTime2 = tempTime
+		# 	return self.tempTime2
 
-		if (self.cBit2==4):
-			abc = inferencing()
-			tempTime = []
-			tempTime = abc.times(subjectClear , objectClear , relationclear)
-			tempLoc = abc.locations(subjectClear,objectClear,relationclear)
-			for r in tempLoc:
-				tempTime.append(r)
+		# 	if (self.cBit2!= 0):
+		# 		xyz = inferencing()
+		# 		temoLoc = []
+		# 		temoLoc = xyz.locations(subjectClear , objectClear , relationclear)
+		# 		print("check location time funct called......")
 
-			print("check inference time and location")
+		# 		for i in range(len(temoLoc)):
+		# 			print ("location Inferenced yoyoyoyo" ,temoLoc[i])
+		# 		self.tempLoc2 = temoLoc
+		# 	return self.tempLoc2
 
-			for i in range(len(tempTime)):
-				print ("Select" ,tempTime[i])
-			self.tempTime2 = tempTime
-
-		if (self.cBit2==44):
-			abc = inferencing()
-			tempTime = []
-			tempTime = abc.times(subjectClear , objectClear , relationclear)
-			tempDate = abc.dates(subjectClear,objectClear,relationclear)
-			for r1 in tempDate:
-				tempTime.append(r1)
-
-			print("check inference time and date")
-
-			for i in range(len(tempTime)):
-				print ("Select" ,tempTime[i])
-			self.tempTime2 = tempTime
-
-		if (self.cBit2==444):
-			abc = inferencing()
-			tempTime = []
-			tempLoc = abc.locations(subjectClear , objectClear , relationclear)
-			tempDate = abc.dates(subjectClear,objectClear,relationclear)
-			for r2 in tempDate:
-				tempLoc.append(r2)
-
-			print("check inference location and date")
-
-			for i in range(len(tempLoc)):
-				print ("Select" ,tempLoc[i])
-			self.tempTime2 = tempLoc
-
-		if (self.cBit2==333):
-			abc = inferencing()
-			tempTime = []
-			tempTime = abc.times(subjectClear , objectClear , relationclear)
-			tempLoc = abc.locations(subjectClear,objectClear,relationclear)
-			tempDate = abc.dates(subjectClear,objectClear,relationclear)
-			for r3 in tempLoc:
-				tempTime.append(r3)
-
-			for r4 in tempDate:
-				tempTime.append(r4)
-
-			print("check inference time, location and date")
-
-			for i in range(len(tempTime)):
-				print ("Select" ,tempTime[i])
-			self.tempTime2 = tempTime
-
-		if (self.cBit2==000):
-		
-			tempTime = []
-			
-			self.tempTime2 =""
+		# else:
+		# 	print("Flag -1 ... incomplete SubObj info")
+		# 	tempsSelf=self.cBits2
 
 
-		return self.tempTime2
+
 
 
 		
