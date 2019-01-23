@@ -155,17 +155,30 @@ def Register_form():
 
 	# if request.method == 'GET': 
 	uText = request.form['uname']
-
 	# uText = request.form['uname']
 	fText = request.form['fname']
 	lText = request.form['lname']
 	pText = request.form ['password']
 	eText = request.form ['email']
 	nText = request.form ['pnumber']
-
 	register_user.createUser(uText , fText , lText , eText , pText , nText , "student" )
 	print ("student Register")
-	# tText = request.form ['']
+		# tText = request.form ['']
+
+
+	# elText = request.form ['login_email']
+	# plText = request.form['login_pass']
+
+
+
+	# ahoVar=userReturnEmail(elText , plText)
+	# print("Name: ", ahoVar)
+
+
+	# aho4Var=userReturnPass(elText , plText)
+	# print("Password: ", aho4Var)
+
+	
 
 
 	# lForm = request.form['login_form']
@@ -227,6 +240,59 @@ def Register_form():
 # 	text = request.form['text_store_Prompt']
 # 	textspacy.function_spacy(text)
 # 	return render_template('index.html')
+
+
+@app.route('/login2')
+def index_login():
+	return render_template("login.html")
+
+@app.route('/login2' ,  methods=['GET' , 'POST'])
+def login_form():
+
+
+	# if request.method == 'GET': 
+		# tText = request.form ['']
+
+
+	elText = request.form ['login_email']
+	plText = request.form['login_pass']
+
+
+
+	ru = register_user()
+	ahoVar=ru.userReturnEmail(elText , plText)
+	print("Name: ", ahoVar)
+
+
+	aho4Var=ru.userReturnPass(elText , plText)
+	print("Password: ", aho4Var)
+
+
+ # 'admin' or request.form['login_pass'] != 'admin'
+	error = None
+	if request.method == 'POST':
+		if ahoVar is None and  aho4Var is None:
+			error = "Invalid Credentials Please Try again"
+		else:
+			return render_template('index.html')
+	return render_template('login.html' , error = error)
+
+  
+
+
+	# lForm = request.form['login_form']
+
+	# # uText = request.form['uname']
+	# pForm = request.form['login_pass']
+	
+
+	# data = register_user.userLogin(lForm , pForm) 
+	# print ("student Register" , data)
+
+	return render_template("login.html")
+
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)  
