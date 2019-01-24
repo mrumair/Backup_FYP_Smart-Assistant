@@ -68,3 +68,16 @@ class register_user:
 
 
 
+	def userReturnName(  self ,email, passw):
+		semail = email
+		spassw = passw
+		#tempQuery = 'start n=node(*) where n.Email:{remail} and n.Password:{rpassw} return n'
+		tempQuery = 'Match (n:SignUp {Email: {remail} , Password :{rpassw} } ) RETURN n.firstName , n.lastName'
+		postVar = graph.run(tempQuery, remail = semail, rpassw = spassw).data()
+		#print("Node returned: ", postVar[])
+		for r in postVar:
+			global tempNameStore
+			tempNameStore=(postVar[0]["n.firstName"])
+			# tempNameStore2 = (postVar[0]["n.lastName"])
+
+			return tempNameStore

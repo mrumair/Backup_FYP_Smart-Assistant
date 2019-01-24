@@ -115,12 +115,11 @@ img { max-width: 100%; }
 }
 
 .form-top {
-	overflow: hidden;
 	padding: 0 25px 15px 25px;
 	background: #444;
-	background: rgba(0, 0, 0, 0.35);
-	-moz-border-radius: 4px 4px 0 0; -webkit-border-radius: 4px 4px 0 0; border-radius: 4px 4px 0 0;
-	text-align: left;
+	background: #444;
+	text-align: center;
+	font-weight: bold;
 }
 
 .form-top-left {
@@ -129,8 +128,8 @@ img { max-width: 100%; }
 	padding-top: 25px;
 }
 
-.form-top-left h3 { margin-top: 0; color: #fff; }
-.form-top-left p { opacity: 0.8; color: #fff; }
+.form-top-left h3 { margin-top: 0; color: white; font-weight: bold; text-align: center;}
+.form-top-left p { color: white;text-align: center;}
 
 .form-top-right {
 	float: left;
@@ -146,7 +145,7 @@ img { max-width: 100%; }
 .form-bottom {
 	padding: 25px 25px 30px 25px;
 	background: #444;
-	background: rgba(0, 0, 0, 0.3);
+	background: #444;
 	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
 	text-align: left;
 }

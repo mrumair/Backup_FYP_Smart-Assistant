@@ -26,16 +26,17 @@ class post:
     
     #neo4jupyter.draw(graph_object_py2neo, {"Nodes_type": "Att"})
     #DataFrame(graph.data("MATCH (a) RETURN a.name"))d
-  def createqueryrelation(subjct , objct , relation , propTime , propVenue):
+  def createqueryrelation(subjct , objct , relation , propTime , propVenue , propDate):
     sub = subjct
     obj = objct
     rel_type = relation
     Time_prop = propTime
     Venue_prop = propVenue
-    query =  'MERGE (u1:UserMeeting { name: {subs} }) MERGE (u2:UserMeeting { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep}}]-(u2)'
+    date_prop = propDate
+    query =  'MERGE (u1:UserMeeting { name: {subs} }) MERGE (u2:UserMeeting { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep} , date :{datep}}]-(u2)'
     # MERGE (user:UserMeeting {name:"Jane"}) MERGE (friend:UserMeeting {name:"John"}) MERGE (user)-[r:KNOWS]->(friend)
     # query = 'MERGE (u:UserMeeting{name :{subs}}) MERGE(r:UserMeeting{name:{objs}}) MERGE   (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r)'
-    post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop )
+    post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop , datep = date_prop )
     print ("relation created")
     print (post.data())
 
@@ -81,7 +82,11 @@ class post:
 
 
   #definning functionss for validation
-  def validateInfo( institute , timep):
+ 
+
+
+
+  def validateInfo( institute , timep , date):
     cBit=0
     if (institute==""):
       #listStore3 = "Please Enter complete Information"
@@ -90,17 +95,32 @@ class post:
     if (timep == ""):
       cBit = 7 
 
+    if (date == ""):
+      cBit = 11
+
 
     # if (subjectv == ""):
     #   cBit = 2
-  
 
-    if (institute =="" and timep == "" ):
+    # if(objectv =="" ):
+    #   cBit = 22
+
+    if (institute =="" and timep == ""):
       cBit = 4
-    # if (institute =="" and timep == "" and objectv == "" and subjectv == ""):
-    #   cBit = 9
+
+    if (date =="" and timep == ""):
+      cBit = 44
+
+    if (date =="" and institute == ""):
+      cBit = 444
+
+    if (date =="" and institute == "" and timep == ""):
+      cBit = 333
+    if (date !="" and institute != "" and timep != ""):
+      cBit = 000
 
     return cBit
+
 
   # def checkBit()
   #   if 
