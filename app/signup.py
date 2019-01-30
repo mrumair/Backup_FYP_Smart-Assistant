@@ -81,3 +81,48 @@ class register_user:
 			# tempNameStore2 = (postVar[0]["n.lastName"])
 
 			return tempNameStore
+
+
+	def userReturnLastName(  self ,email, passw):
+		semail = email
+		spassw = passw
+		#tempQuery = 'start n=node(*) where n.Email:{remail} and n.Password:{rpassw} return n'
+		tempQuery = 'Match (n:SignUp {Email: {remail} , Password :{rpassw} } ) RETURN  n.lastName'
+		postVar = graph.run(tempQuery, remail = semail, rpassw = spassw).data()
+		#print("Node returned: ", postVar[])
+		for r in postVar:
+			global tempNameStore
+			tempNameStore=(postVar[0]["n.lastName"])
+			# tempNameStore2 = (postVar[0]["n.lastName"])
+
+			return tempNameStore
+
+
+	def userReturnContactNumber(  self ,email, passw):
+		semail = email
+		spassw = passw
+		#tempQuery = 'start n=node(*) where n.Email:{remail} and n.Password:{rpassw} return n'
+		tempQuery = 'Match (n:SignUp {Email: {remail} , Password :{rpassw} } ) RETURN n.Tel'
+		postVar = graph.run(tempQuery, remail = semail, rpassw = spassw).data()
+		#print("Node returned: ", postVar[])
+		for r in postVar:
+			global tempNameStore
+			tempNameStore=(postVar[0]["n.Tel"])
+			# tempNameStore2 = (postVar[0]["n.lastName"])
+
+			return tempNameStore
+
+
+	def userReturnType(  self ,email, passw):
+		semail = email
+		spassw = passw
+		#tempQuery = 'start n=node(*) where n.Email:{remail} and n.Password:{rpassw} return n'
+		tempQuery = 'Match (n:SignUp {Email: {remail} , Password :{rpassw} } ) RETURN n.Type'
+		postVar = graph.run(tempQuery, remail = semail, rpassw = spassw).data()
+		#print("Node returned: ", postVar[])
+		for r in postVar:
+			global tempNameStore
+			tempNameStore=(postVar[0]["n.Type"])
+			# tempNameStore2 = (postVar[0]["n.lastName"])
+
+			return tempNameStore

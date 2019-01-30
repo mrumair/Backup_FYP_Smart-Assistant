@@ -11,6 +11,7 @@ from model import *
 from infer_fnc import *
 from infer_fnc import inferencing
 from signup import *
+# from main import gloVar
 
 global tempS
 tempSelf=3
@@ -71,7 +72,7 @@ class text_spacy:
 	# 	return self.tempTime2
 
 
-	def function_spacy(self,docx12):
+	def function_spacy(self,docx12,varGlo ):
 		cBit3=0
 		clearsubject = ""
 		relationclear = ""
@@ -110,7 +111,7 @@ class text_spacy:
 			entitites = (num.label_)
 			if entitites is "PERSON":
 				person.append(num.text)
-				upper="Rabeeya"
+				upper= varGlo
 				seond=person[0]
 				#seond=person[-1]
 				print("subject is: ", upper)

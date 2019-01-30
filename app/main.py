@@ -1,4 +1,4 @@
-from flask import Flask , render_template , request  , redirect
+from flask import Flask , render_template , request  , redirect , Response
 from neo4jrestclient.client import GraphDatabase
 from flask_bootstrap import Bootstrap
 from model import post
@@ -9,6 +9,9 @@ from infer_fnc import *
 from infer_fnc import inferencing
 from meetList import *
 from signup import *
+import json
+import urllib
+
 from signup import register_user
 
 
@@ -19,25 +22,42 @@ Bootstrap(app)
 ip = []
 osystem = []
 
-@app.route('/') 
-def index():    
-    return  render_template('index.html')
+gloVar = "abcd"
+ahoVar = ""
+aho4Var = ""
+typpOf = ""
+contact = ""
+lname = ""
+@app.route('/dash') 
+def index():   
 
-@app.route('/meetings')
-def showAll():
-    return render_template('meetings.html')
+    print("Value before Index" , gloVar) 
+    return  render_template('index.html' , gloVar = gloVar)
+
+# @app.route('/meetings')
+# def showAll():
+
+#     return render_template('meetings.html' , gloVar= gloVar)
+
+@app.route('/')
+def homeX():
+    return render_template('home.html')
 
 
 @app.route('/meetings', methods=['GET', 'POST'])
 def showMeet():
-    tempSub = request.form['subName']
+    # tempSub = request.form['subName']
     #print("subject: ", tempSub)
     meetTemp=[]
-    meetTemp=meet_list(tempSub, "meeting")
+    meetTemp=meet_list(gloVar, "meeting")
+
+    if(meetTemp == ""):
+        print("list is"  , meetTemp)
+
     #print("printing hahahah")
     # for i in range(len(meetTemp)):
     #   print("M: ", meetTemp[i])
-    return render_template('meetings.html', meetTemp=meetTemp)
+    return render_template('meetings.html', meetTemp=meetTemp , gloVar = gloVar)
 
 
 global flagBit4
@@ -52,12 +72,12 @@ textspacy = text_spacy()
 
 
 
-@app.route('/' ,  methods=['GET' , 'POST'])
+@app.route('/dash' ,  methods=['GET' , 'POST'])
 def myForm():
     #return render_template('index.html')
     text_Show = "Hello EveryOne! "
     text = request.form['text_store']
-    textspacy.function_spacy(text)
+    textspacy.function_spacy(text , gloVar)
     cBit6 = textspacy.foo()
     text_Edit = text
     ctempTime6 = textspacy.fooList()
@@ -155,20 +175,23 @@ def myForm():
     print (ip)
     for i in range(0, len(ip)):
         print ("value is ",ip[i])
+    print("value is : AKHSHKHSIOH")
+
+    print ("Value in Index:" , gloVar)
 
 
 
 
     
 
-    return render_template("index.html", respVar = respVar , showText = showText  , ctempTime6 = ctempTime6 , ip = ip )
+    return render_template("index.html", respVar = respVar , showText = showText  , ctempTime6 = ctempTime6 , ip = ip , gloVar = gloVar )
 #   return render_template('index.html')
 
-@app.route('/login')
+@app.route('/reg')
 def indexRegister():
-    return render_template("form2.html")
+    return render_template("signupO.html")
 
-@app.route('/login' ,  methods=['GET' , 'POST'])
+@app.route('/reg' ,  methods=['GET' , 'POST'])
 def Register_form():
 
 
@@ -209,7 +232,7 @@ def Register_form():
     # data = register_user.userLogin(lForm , pForm) 
     # print ("student Register" , data)
 
-    return render_template("form2.html")
+    return render_template("signupO.html")
     
         #return render_template('index.html')
         
@@ -261,14 +284,18 @@ def Register_form():
 #   return render_template('index.html')
 
 
-@app.route('/login2')
+@app.route('/log')
 def index_login():
-    return render_template("login.html")
+    return render_template("loginO.html")
 
-@app.route('/login2' ,  methods=['GET' , 'POST'])
+@app.route('/log' ,  methods=['GET' , 'POST'])
 def login_form():
-
-
+    global gloVar
+    global ahoVar
+    global aho4Var
+    global typpOf
+    global contact
+    global lname
     # if request.method == 'GET': 
         # tText = request.form ['']
 
@@ -290,6 +317,15 @@ def login_form():
     print("username: ", gloVar)
     
 
+    typpOf=ru.userReturnType(elText , plText)
+    print("type of: ", typpOf)
+
+    lname=ru.userReturnLastName(elText , plText)
+    print("username: ", lname)
+
+    contact=ru.userReturnContactNumber(elText , plText)
+    print("username: ", contact)
+
 
  # 'admin' or request.form['login_pass'] != 'admin'
     error = None
@@ -297,8 +333,8 @@ def login_form():
         if ahoVar is None and  aho4Var is None:
             error = "Invalid Credentials Please Try again"
         else:
-            return redirect('http://localhost:5000/')
-    return render_template('login.html' , error = error)
+            return redirect('http://localhost:5000/dash')
+    return render_template('loginO.html' , error = error)
 
   
 
@@ -312,7 +348,12 @@ def login_form():
     # data = register_user.userLogin(lForm , pForm) 
     # print ("student Register" , data)
 
-    return render_template("login.html")
+    return render_template("loginO.html")
+
+
+@app.route('/profile')
+def high_property():
+    return render_template("profile.html" ,  gloVar= gloVar , ahoVar = ahoVar , aho4Var =aho4Var , contact = contact , lname = lname , typpOf = typpOf)
 
 
 
