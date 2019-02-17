@@ -9,7 +9,7 @@ from py2neo import Graph, Node, Relationship
 from neo4jrestclient import client
 #from pandas import DataFrame
 
-graph = Graph("http://localhost:11012", username="neo4j", password="neo4j")
+graph = Graph("http://localhost:11007", username="neo4j", password="neo4j")
 
 # cBit2=3
 

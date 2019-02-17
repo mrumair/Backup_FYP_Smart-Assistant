@@ -11,12 +11,34 @@ from meetList import *
 from signup import *
 import json
 import urllib
+from flask_mail import Mail, Message
 
 from signup import register_user
 
 
-db = GraphDatabase("http://localhost:11012", username="neo4j", password="neo4j")
+db = GraphDatabase("http://localhost:11007", username="neo4j", password="neo4j")
 app = Flask(__name__ , template_folder='template')
+
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'umairunofficial123@gmail.com'
+app.config['MAIL_PASSWORD'] = 'ugnofficial0a0'
+#app.config.from_pyfile('D:/FYPNov/NewInstallation/Neo4jData/myproject/app/flask/Lib/site-packages/flask/config.py')
+
+mail = Mail(app)
+
+@app.route("/mailSend", methods=['GET', 'POST'])
+def indexMail():
+    recipientMail = request.form['text_mail']
+    msg = Message(subject='Invitation by Smart Assistant', 
+        sender='umairunofficial123@gmail.com', recipients=[recipientMail])
+    msg.body = "testing"
+    msg.html = '<p>Hi you have been invited by the membership of Smart Assistant. Please join to have it in your daily life. Regards</p><a href="http://localhost:5000/reg">Join Smart Assistant</a>'
+    mail.send(msg)
+    return render_template('aftersent.html')
+
+
 
 Bootstrap(app)
 ip = []

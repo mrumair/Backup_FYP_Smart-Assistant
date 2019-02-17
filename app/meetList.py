@@ -4,7 +4,7 @@ import re
 import spacy
 import en_core_web_sm
 
-graph1 = Graph("http://localhost:11012", username="neo4j", password="neo4j")
+graph1 = Graph("http://localhost:11007", username="neo4j", password="neo4j")
    
 def meet_list(p,rel):
     person_list=[]
