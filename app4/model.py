@@ -5,6 +5,8 @@ from py2neo.cypher import cypher_escape
 #from py2neo import cypher
 #import neo4jupyter
 #import jgraph
+import time
+import datetime
 from py2neo import Graph, Node, Relationship
 from neo4jrestclient import client
 from datetime import datetime
@@ -88,7 +90,8 @@ class post:
     
     print(name)
     #tempQuery = 'start n=node(*) where n.Email:{remail} and n.Password:{rpassw} return n'
-    tempQuery = 'match(n:SignUp) where n.firstName  ={namenew} return n'
+    # tempQuery = 'match(n:SignUp) where n.firstName  ={namenew} return n'
+    tempQuery = 'match(n:SignUp)  unwind n.firstName + " "+  n.lastName as uname with uname as fullname where fullname = {namenew} return fullname'
     postVar = graph.run(tempQuery , namenew = name ).data()
     print(postVar)
     if not postVar:
@@ -133,9 +136,9 @@ class post:
 
 
 
-  def timeNew(TimeVar):
-    tBit = 0
-    TempTime = TimeVar
+  def timeNew(DateVar):
+    dBit = 0
+    DateTime = DateVar
 
     now=datetime.now()
     print (now.month)
@@ -144,7 +147,7 @@ class post:
     print (str(now.month)+"/"+str(now.day)+"/"+str(now.year))
 
 
-    dt = parser.parse(TempTime)
+    dt = parser.parse(DateTime)
     new = dt.date()
     print(new) 
     print (str(new.month)+"/"+str(new.day)+"/"+str(new.year))
@@ -153,24 +156,58 @@ class post:
     print(now.year)
 
     if (new.year > now.year):
-      tBit = 11
-      print (tBit)
+      dBit = 11
+      print (dBit)
       print("you enter th correct date ")
     
     elif(new.year == now.year and new.month > now.month ):
       print ("Same Year but month should be greater")
-      tBit = 22
-      print (tBit)
+      dBit = 22
+      print (dBit)
     
     
     elif(new.year == now.year and new.month == now.month and new.day >= now.day):
         print ("Same year same month but date greates")
-        tBit =33
-        print (tBit)
+        dBit =33
+        print (dBit)
     else:
       print ("you did not enter Correct day")
+      print (dBit)
+    return dBit
+
+
+
+
+  def timeChecking(TimeVar):
+    tBit = 0
+    TempTime = TimeVar
+
+    currentDT = datetime.now()
+    print (currentDT)
+    print ("Current Hour is: %d" % currentDT.hour)
+    print ("Current Minute is: %d" % currentDT.minute)
+    print("Input Time:" , TempTime)
+    b=time.strptime(TempTime,'%H:%M')
+    print("time is " , b.tm_hour)
+    print("time mints is " , b.tm_min )
+
+    if (  b.tm_hour > currentDT.hour):
+      tBit = 11 
+      print (tBit)
+      print("you enter th correct hour")
+    
+    elif( b.tm_hour  == currentDT.hour and  b.tm_min  > currentDT.minute ):
+      print ("Same Hour but mint should be greater")
+      tBit = 22
+      print (tBit)
+    
+
+    else:
+      print ("you did not enter Correct Hour")
       print (tBit)
     return tBit
+
+
 
 
 
@@ -211,6 +248,60 @@ class post:
       cBit = 666
     if (date !="" and institute != "" and timep != "" and objectv!= ""):
       cBit = 000
+
+    return cBit
+  def check(person,institute,time,date):
+    cBit=0
+    if (person != "" and institute == "" and time == "" and date == ""):
+      cBit = 100
+    if (person == "" and institute == "" and time != "" and date == ""):
+      cBit = 101 
+    if (person != "" and institute == "" and time != "" and date == ""):
+      cBit = 102
+    if (person != "" and institute == "" and time == "" and date != ""):
+      cBit = 103
+    if (person == "" and institute == "" and time == "" and date != ""):
+      cBit = 104
+    if (person == "" and institute != "" and time == "" and date == ""):
+      cBit = 105
+    if (person != "" and institute != "" and time == "" and date == ""):
+      cBit = 106
+
+    return cBit
+
+  def checkwhen(person,institute):
+    cBit=0
+    if (person != "" and institute == ""):
+      cBit = 200
+    if (person != "" and institute != ""):
+      cBit = 201 
+
+    return cBit
+
+  def checkwhatloc(person,time, date, institute):
+    cBit=0
+    if (person != "" and institute == "" and time == "" and date == ""):
+      cBit = 400
+    if (person != "" and institute != "" and time == "" and date == ""):
+      cBit = 201 
+
+    return cBit
+
+  def checkwhattime(person,time, date, institute):
+    cBit=0
+    if (person != "" and institute == "" and time == "" and date == ""):
+      cBit = 500
+    if (person != "" and institute != "" and time == "" and date == ""):
+      cBit = 201 
+
+    return cBit
+
+  def checkwhere(person,time):
+    cBit=0
+    if (person != "" and time == ""):
+      cBit = 300
+    if (person != "" and time != ""):
+      cBit = 301 
 
     return cBit
 
@@ -399,6 +490,7 @@ class BotBehaviour:
 
         #subject.relationships.create(relation,objectc,Time=time,Date=date,Venue=venue)
         #return None
-tempVar = "Rabeeya"
+tempVar = "Rabeeya Saleem"
 post.ObjectSelection(tempVar)
 post.timeNew("18 March 2019")
+post.timeChecking("20:09")

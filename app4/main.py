@@ -159,6 +159,47 @@ def myForm():
         tempPrompt = "Great! Your Meeting has been Successfully SCHEDULED!!"
         text_Edit = ""
 
+
+    elif(cBit6 == 100):
+        tempS = "Question"
+        tempPrompt = "Object based question"
+    elif(cBit6 == 101):
+        tempS = "Question"
+        tempPrompt = "time based question"
+    elif(cBit6 == 102):
+        tempS = "Question"
+        tempPrompt = "time and person based question"
+    elif(cBit6 == 103):
+        tempS = "Question"
+        tempPrompt = "date and person based question"
+    elif(cBit6 == 104):
+        tempS = "Question"
+        tempPrompt = "date based question"
+    elif(cBit6 == 105):
+        tempS = "Question"
+        tempPrompt = "location based question"
+    elif(cBit6 == 106):
+        tempS = "Question"
+        tempPrompt = "location and person based question"
+    elif(cBit6 == 200):
+        tempS = "Question"
+        tempPrompt = "when based question"
+    elif(cBit6 == 201):
+        tempS = "Question"
+        tempPrompt = "when based question with location"
+    elif(cBit6 == 300):
+        tempS = "Question"
+        tempPrompt = "where based question"
+    elif(cBit6 == 301):
+        tempS = "Question"
+        tempPrompt = "where based question with time"
+    elif(cBit6 == 400):
+        tempS = "Question"
+        tempPrompt = "what location based question"
+    elif(cBit6 == 500):
+        tempS = "Question"
+        tempPrompt = "what time based question"
+
     
 
 
@@ -244,6 +285,8 @@ def Register_form():
         print("You have no Selected Type")
 
 
+    
+
     # do something with checked array
     
     # if request.method == 'GET': 
@@ -254,7 +297,9 @@ def Register_form():
     pText = request.form ['password']
     eText = request.form ['email']
     nText = request.form ['pnumber']
-    register_user.createUser(uText , fText , lText , eText , pText , nText , checked )
+    ftText = request.form['from-time']
+    ttText = request.form ['to-time']
+    register_user.createUser(uText , fText , lText , eText , pText , nText , checked , ftText , ttText)
     
 
         # tText = request.form ['']

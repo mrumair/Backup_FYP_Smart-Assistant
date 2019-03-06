@@ -18,7 +18,7 @@ class register_user:
 		#relationpropertydate = ""
 		self.tempNameStore = ""
 
-	def createUser(uname , fname , lname , email, passw, num , typo):
+	def createUser(uname , fname , lname , email, passw, num , typo , ftime , ttime ):
 		suname = uname 
 		sfname = fname
 		slname = lname
@@ -26,8 +26,10 @@ class register_user:
 		spassw = passw
 		snum = num
 		stypo = typo
-		query= 'MERGE (n:SignUp {userName :{runame} , firstName:{rfname} ,lastName:{rlname} , Email: {remail} , Password :{rpassw} , Tel : {rnum}, Type : {rtype}}) RETURN n.userName' 
-		post=graph.run(query,runame =suname , rfname = sfname  , rlname = slname , remail = semail , rpassw = spassw , rnum = snum , rtype = stypo  ) 
+		sftime = ftime
+		sttime = ttime
+		query= 'MERGE (n:SignUp {userName :{runame} , firstName:{rfname} ,lastName:{rlname} , Email: {remail} , Password :{rpassw} , Tel : {rnum}, Type : {rtype}  , from_Time : {rftime}  , to_Time : {rttime} }) RETURN n.userName' 
+		post=graph.run(query,runame =suname , rfname = sfname  , rlname = slname , remail = semail , rpassw = spassw , rnum = snum , rtype = stypo  , rftime = sftime , rttime = sttime ) 
 		print("register successfully!")
 		print(post.data())
 

@@ -41,9 +41,9 @@ from dateutil import parser
 
 
 
-def timeNew(TimeVar):
+def timeNew(DateVar):
 	tBit = 0
-	TempTime = TimeVar
+	DateTime = DateVar
 
 	now=datetime.now()
 	print (now.month)
@@ -52,7 +52,7 @@ def timeNew(TimeVar):
 	print (str(now.month)+"/"+str(now.day)+"/"+str(now.year))
 
 
-	dt = parser.parse(TempTime)
+	dt = parser.parse(DateTime)
 	new = dt.date()
 	print(new) 
 	print (str(new.month)+"/"+str(new.day)+"/"+str(new.year))
@@ -81,7 +81,7 @@ def timeNew(TimeVar):
 	return tBit
 
 
-timeNew("18 March 2018")
+timeNew("18 March 2019")
 # d = datetime.strptime(str(new), "%Y/%m/%d")
 
 # print (d.month)
