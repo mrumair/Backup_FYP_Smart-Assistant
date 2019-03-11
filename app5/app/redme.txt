@@ -1,0 +1,20 @@
+start 
+flask script activate
+run app
+for registration:
+localhost:5000/login
+use signup form only 
+for login 
+localhost:5000/login2
+enter email and password of node in db
+
+if email exist in db and password is correct it will move toward meeting schedular
+
+
+INSTRUCTIONS BY UMAIR:
+
+dropdown isn't working yet
+agenda is creating
+
+SUGGESTION:
+there should be same time of meet relation and fyp agenda 'has' relation
