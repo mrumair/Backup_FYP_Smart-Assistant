@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/signupO.css">
+</head>
+<body>
+
+
+<!-- Include the above in your HEAD tag -->
+
+<div class="sidenav" style="height: 100px">
+      <a href="http://localhost:5000/" style="color: white; font-size: 25px;
+       margin-left: 10px;">Meeting Scheduler</a>
+         <!-- <div class="login-main-text">
+            <br>
+            <h2>Register</h2>
+            <p>        Register from here to access</p>
+         </div> -->
+</div>
+
+<div >
+  
+</div>
+
+
+      <div class="main"   >
+         <div class="col-md-6" >
+            <div class="login-form">
+              <form role="form" action="/reg" method="POST"  class="registration-form">
+            
+                                        <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">First name</label>
+                                            <input type="text" name="fname" placeholder="Firstname" class="form-first-name form-control" id="form-first-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">Last name</label>
+                                            <input type="text" name="lname" placeholder="Lastname" class="form-last-name form-control" id="form-last-name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">Email</label>
+                                            <input type="text" name="email" placeholder="E-mail" class="form-email form-control" id="form-email">
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">Password</label>
+                                            <input type="password" name="password" placeholder="Password" class="form-email form-control" id="form-email">
+        
+                                        </div>
+
+
+                                      <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">Country</label>
+                                            
+                                       
+                                        <select name="country">
+<option value="">Country...</option>
+<option value="Afganistan">Afghanistan</option>
+<option value="Albania">Albania</option>
+<option value="Algeria">Algeria</option>
+<option value="American Samoa">American Samoa</option>
+<option value="Andorra">Andorra</option>
+<option value="Angola">Angola</option>
+<option value="Anguilla">Anguilla</option>
+<option value="Antigua &amp; Barbuda">Antigua &amp; Barbuda</option>
+<option value="Argentina">Argentina</option>
+<option value="Armenia">Armenia</option>
+<option value="Aruba">Aruba</option>
+<option value="Australia">Australia</option>
+<option value="Austria">Austria</option>
+<option value="Azerbaijan">Azerbaijan</option>
+<option value="Bahamas">Bahamas</option>
+<option value="Bahrain">Bahrain</option>
+<option value="Bangladesh">Bangladesh</option>
+<option value="Barbados">Barbados</option>
+<option value="Belarus">Belarus</option>
+<option value="Belgium">Belgium</option>
+<option value="Belize">Belize</option>
+<option value="Benin">Benin</option>
+<option value="Bermuda">Bermuda</option>
+<option value="Bhutan">Bhutan</option>
+<option value="Bolivia">Bolivia</option>
+<option value="Bonaire">Bonaire</option>
+<option value="Bosnia &amp; Herzegovina">Bosnia &amp; Herzegovina</option>
+<option value="Botswana">Botswana</option>
+<option value="Brazil">Brazil</option>
+<option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+<option value="Brunei">Brunei</option>
+<option value="Bulgaria">Bulgaria</option>
+<option value="Burkina Faso">Burkina Faso</option>
+<option value="Burundi">Burundi</option>
+<option value="Cambodia">Cambodia</option>
+<option value="Cameroon">Cameroon</option>
+<option value="Canada">Canada</option>
+<option value="Canary Islands">Canary Islands</option>
+<option value="Cape Verde">Cape Verde</option>
+<option value="Cayman Islands">Cayman Islands</option>
+<option value="Central African Republic">Central African Republic</option>
+<option value="Chad">Chad</option>
+<option value="Channel Islands">Channel Islands</option>
+<option value="Chile">Chile</option>
+<option value="China">China</option>
+<option value="Christmas Island">Christmas Island</option>
+<option value="Cocos Island">Cocos Island</option>
+<option value="Colombia">Colombia</option>
+<option value="Comoros">Comoros</option>
+<option value="Congo">Congo</option>
+<option value="Cook Islands">Cook Islands</option>
+<option value="Costa Rica">Costa Rica</option>
+<option value="Cote DIvoire">Cote D'Ivoire</option>
+<option value="Croatia">Croatia</option>
+<option value="Cuba">Cuba</option>
+<option value="Curaco">Curacao</option>
+<option value="Cyprus">Cyprus</option>
+<option value="Czech Republic">Czech Republic</option>
+<option value="Denmark">Denmark</option>
+<option value="Djibouti">Djibouti</option>
+<option value="Dominica">Dominica</option>
+<option value="Dominican Republic">Dominican Republic</option>
+<option value="East Timor">East Timor</option>
+<option value="Ecuador">Ecuador</option>
+<option value="Egypt">Egypt</option>
+<option value="El Salvador">El Salvador</option>
+<option value="Equatorial Guinea">Equatorial Guinea</option>
+<option value="Eritrea">Eritrea</option>
+<option value="Estonia">Estonia</option>
+<option value="Ethiopia">Ethiopia</option>
+<option value="Falkland Islands">Falkland Islands</option>
+<option value="Faroe Islands">Faroe Islands</option>
+<option value="Fiji">Fiji</option>
+<option value="Finland">Finland</option>
+<option value="France">France</option>
+<option value="French Guiana">French Guiana</option>
+<option value="French Polynesia">French Polynesia</option>
+<option value="French Southern Ter">French Southern Ter</option>
+<option value="Gabon">Gabon</option>
+<option value="Gambia">Gambia</option>
+<option value="Georgia">Georgia</option>
+<option value="Germany">Germany</option>
+<option value="Ghana">Ghana</option>
+<option value="Gibraltar">Gibraltar</option>
+<option value="Great Britain">Great Britain</option>
+<option value="Greece">Greece</option>
+<option value="Greenland">Greenland</option>
+<option value="Grenada">Grenada</option>
+<option value="Guadeloupe">Guadeloupe</option>
+<option value="Guam">Guam</option>
+<option value="Guatemala">Guatemala</option>
+<option value="Guinea">Guinea</option>
+<option value="Guyana">Guyana</option>
+<option value="Haiti">Haiti</option>
+<option value="Hawaii">Hawaii</option>
+<option value="Honduras">Honduras</option>
+<option value="Hong Kong">Hong Kong</option>
+<option value="Hungary">Hungary</option>
+<option value="Iceland">Iceland</option>
+<option value="India">India</option>
+<option value="Indonesia">Indonesia</option>
+<option value="Iran">Iran</option>
+<option value="Iraq">Iraq</option>
+<option value="Ireland">Ireland</option>
+<option value="Isle of Man">Isle of Man</option>
+<option value="Israel">Israel</option>
+<option value="Italy">Italy</option>
+<option value="Jamaica">Jamaica</option>
+<option value="Japan">Japan</option>
+<option value="Jordan">Jordan</option>
+<option value="Kazakhstan">Kazakhstan</option>
+<option value="Kenya">Kenya</option>
+<option value="Kiribati">Kiribati</option>
+<option value="Korea North">Korea North</option>
+<option value="Korea Sout">Korea South</option>
+<option value="Kuwait">Kuwait</option>
+<option value="Kyrgyzstan">Kyrgyzstan</option>
+<option value="Laos">Laos</option>
+<option value="Latvia">Latvia</option>
+<option value="Lebanon">Lebanon</option>
+<option value="Lesotho">Lesotho</option>
+<option value="Liberia">Liberia</option>
+<option value="Libya">Libya</option>
+<option value="Liechtenstein">Liechtenstein</option>
+<option value="Lithuania">Lithuania</option>
+<option value="Luxembourg">Luxembourg</option>
+<option value="Macau">Macau</option>
+<option value="Macedonia">Macedonia</option>
+<option value="Madagascar">Madagascar</option>
+<option value="Malaysia">Malaysia</option>
+<option value="Malawi">Malawi</option>
+<option value="Maldives">Maldives</option>
+<option value="Mali">Mali</option>
+<option value="Malta">Malta</option>
+<option value="Marshall Islands">Marshall Islands</option>
+<option value="Martinique">Martinique</option>
+<option value="Mauritania">Mauritania</option>
+<option value="Mauritius">Mauritius</option>
+<option value="Mayotte">Mayotte</option>
+<option value="Mexico">Mexico</option>
+<option value="Midway Islands">Midway Islands</option>
+<option value="Moldova">Moldova</option>
+<option value="Monaco">Monaco</option>
+<option value="Mongolia">Mongolia</option>
+<option value="Montserrat">Montserrat</option>
+<option value="Morocco">Morocco</option>
+<option value="Mozambique">Mozambique</option>
+<option value="Myanmar">Myanmar</option>
+<option value="Nambia">Nambia</option>
+<option value="Nauru">Nauru</option>
+<option value="Nepal">Nepal</option>
+<option value="Netherland Antilles">Netherland Antilles</option>
+<option value="Netherlands">Netherlands (Holland, Europe)</option>
+<option value="Nevis">Nevis</option>
+<option value="New Caledonia">New Caledonia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Nicaragua">Nicaragua</option>
+<option value="Niger">Niger</option>
+<option value="Nigeria">Nigeria</option>
+<option value="Niue">Niue</option>
+<option value="Norfolk Island">Norfolk Island</option>
+<option value="Norway">Norway</option>
+<option value="Oman">Oman</option>
+<option value="Pakistan">Pakistan</option>
+<option value="Palau Island">Palau Island</option>
+<option value="Palestine">Palestine</option>
+<option value="Panama">Panama</option>
+<option value="Papua New Guinea">Papua New Guinea</option>
+<option value="Paraguay">Paraguay</option>
+<option value="Peru">Peru</option>
+<option value="Phillipines">Philippines</option>
+<option value="Pitcairn Island">Pitcairn Island</option>
+<option value="Poland">Poland</option>
+<option value="Portugal">Portugal</option>
+<option value="Puerto Rico">Puerto Rico</option>
+<option value="Qatar">Qatar</option>
+<option value="Republic of Montenegro">Republic of Montenegro</option>
+<option value="Republic of Serbia">Republic of Serbia</option>
+<option value="Reunion">Reunion</option>
+<option value="Romania">Romania</option>
+<option value="Russia">Russia</option>
+<option value="Rwanda">Rwanda</option>
+<option value="St Barthelemy">St Barthelemy</option>
+<option value="St Eustatius">St Eustatius</option>
+<option value="St Helena">St Helena</option>
+<option value="St Kitts-Nevis">St Kitts-Nevis</option>
+<option value="St Lucia">St Lucia</option>
+<option value="St Maarten">St Maarten</option>
+<option value="St Pierre &amp; Miquelon">St Pierre &amp; Miquelon</option>
+<option value="St Vincent &amp; Grenadines">St Vincent &amp; Grenadines</option>
+<option value="Saipan">Saipan</option>
+<option value="Samoa">Samoa</option>
+<option value="Samoa American">Samoa American</option>
+<option value="San Marino">San Marino</option>
+<option value="Sao Tome &amp; Principe">Sao Tome &amp; Principe</option>
+<option value="Saudi Arabia">Saudi Arabia</option>
+<option value="Senegal">Senegal</option>
+<option value="Serbia">Serbia</option>
+<option value="Seychelles">Seychelles</option>
+<option value="Sierra Leone">Sierra Leone</option>
+<option value="Singapore">Singapore</option>
+<option value="Slovakia">Slovakia</option>
+<option value="Slovenia">Slovenia</option>
+<option value="Solomon Islands">Solomon Islands</option>
+<option value="Somalia">Somalia</option>
+<option value="South Africa">South Africa</option>
+<option value="Spain">Spain</option>
+<option value="Sri Lanka">Sri Lanka</option>
+<option value="Sudan">Sudan</option>
+<option value="Suriname">Suriname</option>
+<option value="Swaziland">Swaziland</option>
+<option value="Sweden">Sweden</option>
+<option value="Switzerland">Switzerland</option>
+<option value="Syria">Syria</option>
+<option value="Tahiti">Tahiti</option>
+<option value="Taiwan">Taiwan</option>
+<option value="Tajikistan">Tajikistan</option>
+<option value="Tanzania">Tanzania</option>
+<option value="Thailand">Thailand</option>
+<option value="Togo">Togo</option>
+<option value="Tokelau">Tokelau</option>
+<option value="Tonga">Tonga</option>
+<option value="Trinidad &amp; Tobago">Trinidad &amp; Tobago</option>
+<option value="Tunisia">Tunisia</option>
+<option value="Turkey">Turkey</option>
+<option value="Turkmenistan">Turkmenistan</option>
+<option value="Turks &amp; Caicos Is">Turks &amp; Caicos Is</option>
+<option value="Tuvalu">Tuvalu</option>
+<option value="Uganda">Uganda</option>
+<option value="Ukraine">Ukraine</option>
+<option value="United Arab Erimates">United Arab Emirates</option>
+<option value="United Kingdom">United Kingdom</option>
+<option value="United States of America">United States of America</option>
+<option value="Uraguay">Uruguay</option>
+<option value="Uzbekistan">Uzbekistan</option>
+<option value="Vanuatu">Vanuatu</option>
+<option value="Vatican City State">Vatican City State</option>
+<option value="Venezuela">Venezuela</option>
+<option value="Vietnam">Vietnam</option>
+<option value="Virgin Islands (Brit)">Virgin Islands (Brit)</option>
+<option value="Virgin Islands (USA)">Virgin Islands (USA)</option>
+<option value="Wake Island">Wake Island</option>
+<option value="Wallis &amp; Futana Is">Wallis &amp; Futana Is</option>
+<option value="Yemen">Yemen</option>
+<option value="Zaire">Zaire</option>
+<option value="Zambia">Zambia</option>
+<option value="Zimbabwe">Zimbabwe</option>
+</select>
+</div>
+
+
+<div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">City</label>
+
+
+                                     <select name="city">
+<option value="">Cities...</option>
+
+
+                                                        <option class="option" value="Abbottabad">Abbottabad</option>
+                                                        <option class="option" value="Adezai">Adezai</option>
+                                                        <option class="option" value="Ali Bandar">Ali Bandar</option>
+                                                        <option class="option" value="Amir Chah">Amir Chah</option>
+                                                        <option class="option" value="Attock">Attock</option>
+                                                        <option class="option" value="Ayubia">Ayubia</option>
+                                                        <option class="option" value="Bahawalpur">Bahawalpur</option>
+                                                        <option class="option" value="Baden">Baden</option>
+                                                        <option class="option" value="Bagh">Bagh</option>
+                                                        <option class="option" value="Bahawalnagar">Bahawalnagar</option>
+                                                        <option class="option" value="Burewala">Burewala</option>
+                                                        <option class="option" value="Banda Daud Shah">Banda Daud Shah</option>
+                                                        <option class="option" value="Bannu district|Bannu">Bannu</option>
+                                                        <option class="option" value="Batagram">Batagram</option>
+                                                        <option class="option" value="Bazdar">Bazdar</option>
+                                                        <option class="option" value="Bela">Bela</option>
+                                                        <option class="option" value="Bellpat">Bellpat</option>
+                                                        <option class="option" value="Bhag">Bhag</option>
+                                                        <option class="option" value="Bhakkar">Bhakkar</option>
+                                                        <option class="option" value="Bhalwal">Bhalwal</option>
+                                                        <option class="option" value="Bhimber">Bhimber</option>
+                                                        <option class="option" value="Birote">Birote</option>
+                                                        <option class="option" value="Buner">Buner</option>
+                                                        <option class="option" value="Burj">Burj</option>
+                                                        <option class="option" value="Chiniot">Chiniot</option>
+                                                        <option class="option" value="Chachro">Chachro</option>
+                                                        <option class="option" value="Chagai">Chagai</option>
+                                                        <option class="option" value="Chah Sandan">Chah Sandan</option>
+                                                        <option class="option" value="Chailianwala">Chailianwala</option>
+                                                        <option class="option" value="Chakdara">Chakdara</option>
+                                                        <option class="option" value="Chakku">Chakku</option>
+                                                        <option class="option" value="Chakwal">Chakwal</option>
+                                                        <option class="option" value="Chaman">Chaman</option>
+                                                        <option class="option" value="Charsadda">Charsadda</option>
+                                                        <option class="option" value="Chhatr">Chhatr</option>
+                                                        <option class="option" value="Chichawatni">Chichawatni</option>
+                                                        <option class="option" value="Chitral">Chitral</option>
+                                                        <option class="option" value="Dadu">Dadu</option>
+                                                        <option class="option" value="Dera Ghazi Khan">Dera Ghazi Khan</option>
+                                                        <option class="option" value="Dera Ismail Khan">Dera Ismail Khan</option>
+                                                         <option class="option" value="Dalbandin">Dalbandin</option>
+                                                        <option class="option" value="Dargai">Dargai</option>
+                                                        <option class="option" value="Darya Khan">Darya Khan</option>
+                                                        <option class="option" value="Daska">Daska</option>
+                                                        <option class="option" value="Dera Bugti">Dera Bugti</option>
+                                                        <option class="option" value="Dhana Sar">Dhana Sar</option>
+                                                        <option class="option" value="Digri">Digri</option>
+                                                        <option class="option" value="Dina City|Dina">Dina</option>
+                                                        <option class="option" value="Dinga">Dinga</option>
+                                                        <option class="option" value="Diplo, Pakistan|Diplo">Diplo</option>
+                                                        <option class="option" value="Diwana">Diwana</option>
+                                                        <option class="option" value="Dokri">Dokri</option>
+                                                        <option class="option" value="Drosh">Drosh</option>
+                                                        <option class="option" value="Duki">Duki</option>
+                                                        <option class="option" value="Dushi">Dushi</option>
+                                                        <option class="option" value="Duzab">Duzab</option>
+                                                        <option class="option" value="Faisalabad">Faisalabad</option>
+                                                        <option class="option" value="Fateh Jang">Fateh Jang</option>
+                                                        <option class="option" value="Ghotki">Ghotki</option>
+                                                        <option class="option" value="Gwadar">Gwadar</option>
+                                                        <option class="option" value="Gujranwala">Gujranwala</option>
+                                                        <option class="option" value="Gujrat">Gujrat</option>
+                                                        <option class="option" value="Gadra">Gadra</option>
+                                                        <option class="option" value="Gajar">Gajar</option>
+                                                        <option class="option" value="Gandava">Gandava</option>
+                                                        <option class="option" value="Garhi Khairo">Garhi Khairo</option>
+                                                        <option class="option" value="Garruck">Garruck</option>
+                                                        <option class="option" value="Ghakhar Mandi">Ghakhar Mandi</option>
+                                                        <option class="option" value="Ghanian">Ghanian</option>
+                                                        <option class="option" value="Ghauspur">Ghauspur</option>
+                                                        <option class="option" value="Ghazluna">Ghazluna</option>
+                                                        <option class="option" value="Girdan">Girdan</option>
+                                                        <option class="option" value="Gulistan">Gulistan</option>
+                                                        <option class="option" value="Gwash">Gwash</option>
+                                                        <option class="option" value="Hyderabad">Hyderabad</option>
+                                                        <option class="option" value="Hala">Hala</option>
+                                                        <option class="option" value="Haripur">Haripur</option>
+                                                        <option class="option" value="Hab Chauki">Hab Chauki</option>
+                                                        <option class="option" value="Hafizabad">Hafizabad</option>
+                                                        <option class="option" value="Hameedabad">Hameedabad</option>
+                                                        <option class="option" value="Hangu">Hangu</option>
+                                                        <option class="option" value="Harnai">Harnai</option>
+                                                        <option class="option" value="Hasilpur">Hasilpur</option>
+                                                        <option class="option" value="Haveli Lakha">Haveli Lakha</option>
+                                                        <option class="option" value="Hinglaj">Hinglaj</option>
+                                                        <option class="option" value="Hoshab">Hoshab</option>
+                                                        <option class="option" value="Islamabad">Islamabad</option>
+                                                        <option class="option" value="Islamkot">Islamkot</option>
+                                                        <option class="option" value="Ispikan">Ispikan</option>
+                                                        <option class="option" value="Jacobabad">Jacobabad</option>
+                                                        <option class="option" value="Jamshoro">Jamshoro</option>
+                                                        <option class="option" value="Jhang">Jhang</option>
+                                                        <option class="option" value="Jhelum">Jhelum</option>
+                                                        <option class="option" value="Jamesabad">Jamesabad</option>
+                                                        <option class="option" value="Jampur">Jampur</option>
+                                                        <option class="option" value="Janghar">Janghar</option>
+                                                        <option class="option" value="Jati, Jati(Mughalbhin)">Jati</option>
+                                                        <option class="option" value="Jauharabad">Jauharabad</option>
+                                                        <option class="option" value="Jhal">Jhal</option>
+                                                        <option class="option" value="Jhal Jhao">Jhal Jhao</option>
+                                                        <option class="option" value="Jhatpat">Jhatpat</option>
+                                                        <option class="option" value="Jhudo">Jhudo</option>
+                                                        <option class="option" value="Jiwani">Jiwani</option>
+                                                        <option class="option" value="Jungshahi">Jungshahi</option>
+                                                        <option class="option" value="Karachi">Karachi</option>
+                                                        <option class="option" value="Kotri">Kotri</option>
+                                                        <option class="option" value="Kalam">Kalam</option>
+                                                        <option class="option" value="Kalandi">Kalandi</option>
+                                                        <option class="option" value="Kalat">Kalat</option>
+                                                        <option class="option" value="Kamalia">Kamalia</option>
+                                                        <option class="option" value="Kamararod">Kamararod</option>
+                                                        <option class="option" value="Kamber">Kamber</option>
+                                                        <option class="option" value="Kamokey">Kamokey</option>
+                                                        <option class="option" value="Kanak">Kanak</option>
+                                                        <option class="option" value="Kandi">Kandi</option>
+                                                        <option class="option" value="Kandiaro">Kandiaro</option>
+                                                        <option class="option" value="Kanpur">Kanpur</option>
+                                                        <option class="option" value="Kapip">Kapip</option>
+                                                        <option class="option" value="Kappar">Kappar</option>
+                                                        <option class="option" value="Karak City">Karak City</option>
+                                                        <option class="option" value="Karodi">Karodi</option>
+                                                        <option class="option" value="Kashmor">Kashmor</option>
+                                                        <option class="option" value="Kasur">Kasur</option>
+                                                        <option class="option" value="Katuri">Katuri</option>
+                                                        <option class="option" value="Keti Bandar">Keti Bandar</option>
+                                                        <option class="option" value="Khairpur">Khairpur</option>
+                                                        <option class="option" value="Khanaspur">Khanaspur</option>
+                                                        <option class="option" value="Khanewal">Khanewal</option>
+                                                        <option class="option" value="Kharan">Kharan</option>
+                                                        <option class="option" value="kharian">kharian</option>
+                                                        <option class="option" value="Khokhropur">Khokhropur</option>
+                                                        <option class="option" value="Khora">Khora</option>
+                                                        <option class="option" value="Khushab">Khushab</option>
+                                                        <option class="option" value="Khuzdar">Khuzdar</option>
+                                                        <option class="option" value="Kikki">Kikki</option>
+                                                        <option class="option" value="Klupro">Klupro</option>
+                                                        <option class="option" value="Kohan">Kohan</option>
+                                                        <option class="option" value="Kohat">Kohat</option>
+                                                        <option class="option" value="Kohistan">Kohistan</option>
+                                                        <option class="option" value="Kohlu">Kohlu</option>
+                                                        <option class="option" value="Korak">Korak</option>
+                                                        <option class="option" value="Korangi">Korangi</option>
+                                                        <option class="option" value="Kot Sarae">Kot Sarae</option>
+                                                        <option class="option" value="Kotli">Kotli</option>
+                                                        <option class="option" value="Lahore">Lahore</option>
+                                                        <option class="option" value="Larkana">Larkana</option>
+                                                        <option class="option" value="Lahri">Lahri</option>
+                                                        <option class="option" value="Lakki Marwat">Lakki Marwat</option>
+                                                        <option class="option" value="Lasbela">Lasbela</option>
+                                                        <option class="option" value="Latamber">Latamber</option>
+                                                        <option class="option" value="Layyah">Layyah</option>
+                                                        <option class="option" value="Leiah">Leiah</option>
+                                                        <option class="option" value="Liari">Liari</option>
+                                                        <option class="option" value="Lodhran">Lodhran</option>
+                                                        <option class="option" value="Loralai">Loralai</option>
+                                                        <option class="option" value="Lower Dir">Lower Dir</option>
+                                                        <option class="option" value="Shadan Lund">Shadan Lund</option>
+                                                        <option class="option" value="Multan">Multan</option>
+                                                        <option class="option" value="Mandi Bahauddin">Mandi Bahauddin</option>
+                                                        <option class="option" value="Mansehra">Mansehra</option>
+                                                        <option class="option" value="Mian Chanu">Mian Chanu</option>
+                                                        <option class="option" value="Mirpur">Mirpur</option>
+                                                        <option class="option" value="Moro, Pakistan|Moro">Moro</option>
+                                                        <option class="option" value="Mardan">Mardan</option>
+                                                        <option class="option" value="Mach">Mach</option>
+                                                        <option class="option" value="Madyan">Madyan</option>
+                                                        <option class="option" value="Malakand">Malakand</option>
+                                                        <option class="option" value="Mand">Mand</option>
+                                                        <option class="option" value="Manguchar">Manguchar</option>
+                                                        <option class="option" value="Mashki Chah">Mashki Chah</option>
+                                                        <option class="option" value="Maslti">Maslti</option>
+                                                        <option class="option" value="Mastuj">Mastuj</option>
+                                                        <option class="option" value="Mastung">Mastung</option>
+                                                        <option class="option" value="Mathi">Mathi</option>
+                                                        <option class="option" value="Matiari">Matiari</option>
+                                                        <option class="option" value="Mehar">Mehar</option>
+                                                        <option class="option" value="Mekhtar">Mekhtar</option>
+                                                        <option class="option" value="Merui">Merui</option>
+                                                        <option class="option" value="Mianwali">Mianwali</option>
+                                                        <option class="option" value="Mianez">Mianez</option>
+                                                        <option class="option" value="Mirpur Batoro">Mirpur Batoro</option>
+                                                        <option class="option" value="Mirpur Khas">Mirpur Khas</option>
+                                                        <option class="option" value="Mirpur Sakro">Mirpur Sakro</option>
+                                                        <option class="option" value="Mithi">Mithi</option>
+                                                        <option class="option" value="Mongora">Mongora</option>
+                                                        <option class="option" value="Murgha Kibzai">Murgha Kibzai</option>
+                                                        <option class="option" value="Muridke">Muridke</option>
+                                                        <option class="option" value="Musa Khel Bazar">Musa Khel Bazar</option>
+                                                        <option class="option" value="Muzaffar Garh">Muzaffar Garh</option>
+                                                        <option class="option" value="Muzaffarabad">Muzaffarabad</option>
+                                                        <option class="option" value="Nawabshah">Nawabshah</option>
+                                                        <option class="option" value="Nazimabad">Nazimabad</option>
+                                                        <option class="option" value="Nowshera">Nowshera</option>
+                                                        <option class="option" value="Nagar Parkar">Nagar Parkar</option>
+                                                        <option class="option" value="Nagha Kalat">Nagha Kalat</option>
+                                                        <option class="option" value="Nal">Nal</option>
+                                                        <option class="option" value="Naokot">Naokot</option>
+                                                        <option class="option" value="Nasirabad">Nasirabad</option>
+                                                        <option class="option" value="Nauroz Kalat">Nauroz Kalat</option>
+                                                        <option class="option" value="Naushara">Naushara</option>
+                                                        <option class="option" value="Nur Gamma">Nur Gamma</option>
+                                                        <option class="option" value="Nushki">Nushki</option>
+                                                        <option class="option" value="Nuttal">Nuttal</option>
+                                                        <option class="option" value="Okara">Okara</option>
+                                                        <option class="option" value="Ormara">Ormara</option>
+                                                        <option class="option" value="Peshawar">Peshawar</option>
+                                                        <option class="option" value="Panjgur">Panjgur</option>
+                                                        <option class="option" value="Pasni City">Pasni City</option>
+                                                        <option class="option" value="Paharpur">Paharpur</option>
+                                                        <option class="option" value="Palantuk">Palantuk</option>
+                                                        <option class="option" value="Pendoo">Pendoo</option>
+                                                        <option class="option" value="Piharak">Piharak</option>
+                                                        <option class="option" value="Pirmahal">Pirmahal</option>
+                                                        <option class="option" value="Pishin">Pishin</option>
+                                                        <option class="option" value="Plandri">Plandri</option>
+                                                        <option class="option" value="Pokran">Pokran</option>
+                                                        <option class="option" value="Pounch">Pounch</option>
+                                                        <option class="option" value="Quetta">Quetta</option>
+                                                        <option class="option" value="Qambar">Qambar</option>
+                                                        <option class="option" value="Qamruddin Karez">Qamruddin Karez</option>
+                                                        <option class="option" value="Qazi Ahmad">Qazi Ahmad</option>
+                                                        <option class="option" value="Qila Abdullah">Qila Abdullah</option>
+                                                        <option class="option" value="Qila Ladgasht">Qila Ladgasht</option>
+                                                        <option class="option" value="Qila Safed">Qila Safed</option>
+                                                        <option class="option" value="Qila Saifullah">Qila Saifullah</option>
+                                                        <option class="option" value="Rawalpindi">Rawalpindi</option>
+                                                        <option class="option" value="Rabwah">Rabwah</option>
+                                                        <option class="option" value="Rahim Yar Khan">Rahim Yar Khan</option>
+                                                        <option class="option" value="Rajan Pur">Rajan Pur</option>
+                                                        <option class="option" value="Rakhni">Rakhni</option>
+                                                        <option class="option" value="Ranipur">Ranipur</option>
+                                                        <option class="option" value="Ratodero">Ratodero</option>
+                                                        <option class="option" value="Rawalakot">Rawalakot</option>
+                                                        <option class="option" value="Renala Khurd">Renala Khurd</option>
+                                                        <option class="option" value="Robat Thana">Robat Thana</option>
+                                                        <option class="option" value="Rodkhan">Rodkhan</option>
+                                                        <option class="option" value="Rohri">Rohri</option>
+                                                        <option class="option" value="Sialkot">Sialkot</option>
+                                                        <option class="option" value="Sadiqabad">Sadiqabad</option>
+                                                        <option class="option" value="Safdar Abad- (Dhaban Singh)">Safdar Abad</option>
+                                                        <option class="option" value="Sahiwal">Sahiwal</option>
+                                                        <option class="option" value="Saidu Sharif">Saidu Sharif</option>
+                                                        <option class="option" value="Saindak">Saindak</option>
+                                                        <option class="option" value="Sakrand">Sakrand</option>
+                                                        <option class="option" value="Sanjawi">Sanjawi</option>
+                                                        <option class="option" value="Sargodha">Sargodha</option>
+                                                        <option class="option" value="Saruna">Saruna</option>
+                                                        <option class="option" value="Shabaz Kalat">Shabaz Kalat</option>
+                                                        <option class="option" value="Shadadkhot">Shadadkhot</option>
+                                                        <option class="option" value="Shahbandar">Shahbandar</option>
+                                                        <option class="option" value="Shahpur">Shahpur</option>
+                                                        <option class="option" value="Shahpur Chakar">Shahpur Chakar</option>
+                                                        <option class="option" value="Shakargarh">Shakargarh</option>
+                                                        <option class="option" value="Shangla">Shangla</option>
+                                                        <option class="option" value="Sharam Jogizai">Sharam Jogizai</option>
+                                                        <option class="option" value="Sheikhupura">Sheikhupura</option>
+                                                        <option class="option" value="Shikarpur">Shikarpur</option>
+                                                        <option class="option" value="Shingar">Shingar</option>
+                                                        <option class="option" value="Shorap">Shorap</option>
+                                                        <option class="option" value="Sibi">Sibi</option>
+                                                        <option class="option" value="Sohawa">Sohawa</option>
+                                                        <option class="option" value="Sonmiani">Sonmiani</option>
+                                                        <option class="option" value="Sooianwala">Sooianwala</option>
+                                                        <option class="option" value="Spezand">Spezand</option>
+                                                        <option class="option" value="Spintangi">Spintangi</option>
+                                                        <option class="option" value="Sui">Sui</option>
+                                                        <option class="option" value="Sujawal">Sujawal</option>
+                                                        <option class="option" value="Sukkur">Sukkur</option>
+                                                        <option class="option" value="Suntsar">Suntsar</option>
+                                                        <option class="option" value="Surab">Surab</option>
+                                                        <option class="option" value="Swabi">Swabi</option>
+                                                        <option class="option" value="Swat">Swat</option>
+                                                        <option class="option" value="Tando Adam">Tando Adam</option>
+                                                        <option class="option" value="Tando Bago">Tando Bago</option>
+                                                        <option class="option" value="Tangi">Tangi</option>
+                                                        <option class="option" value="Tank City">Tank City</option>
+                                                        <option class="option" value="Tar Ahamd Rind">Tar Ahamd Rind</option>
+                                                        <option class="option" value="Thalo">Thalo</option>
+                                                        <option class="option" value="Thatta">Thatta</option>
+                                                        <option class="option" value="Toba Tek Singh">Toba Tek Singh</option>
+                                                        <option class="option" value="Tordher">Tordher</option>
+                                                        <option class="option" value="Tujal">Tujal</option>
+                                                        <option class="option" value="Tump">Tump</option>
+                                                        <option class="option" value="Turbat">Turbat</option>
+                                                        <option class="option" value="Umarao">Umarao</option>
+                                                        <option class="option" value="Umarkot">Umarkot</option>
+                                                        <option class="option" value="Upper Dir">Upper Dir</option>
+                                                        <option class="option" value="Uthal">Uthal</option>
+                                                        <option class="option" value="Vehari">Vehari</option>
+                                                        <option class="option" value="Veirwaro">Veirwaro</option>
+                                                        <option class="option" value="Vitakri">Vitakri</option>
+                                                        <option class="option" value="Wadh">Wadh</option>
+                                                        <option class="option" value="Wah Cantt">Wah Cantt</option>
+                                                        <option class="option" value="Warah">Warah</option>
+                                                        <option class="option" value="Washap">Washap</option>
+                                                        <option class="option" value="Wasjuk">Wasjuk</option>
+                                                        <option class="option" value="Wazirabad">Wazirabad</option>
+                                                        <option class="option" value="Yakmach">Yakmach</option>
+                                                        <option class="option" value="Zhob">Zhob</option>
+                                                        <option class="option" value="Other">Other</option>                                      
+                                                        </select>
+
+                                                      </div>
+
+                                                      <label> Institute</label>
+        <br>
+        <Input id = "inst" name = "Institute" type = "text"  >
+<br>
+                                         <div class="form-group">
+                                            <label style="font-weight: bold; font-size: 18px;">Cell No.</label>
+                                            <input type="Number" name="pnumber" placeholder="Cell No." class="form-email form-control" id="form-email">
+                                        </div>
+<div class = "form-control">
+       &nbsp  &nbsp  &nbsp   <label class="radio-inline">
+      <input type="radio" name="typer"  onClick="Hide('didfv1', this); Reveal('div2', this)" 
+      value = "student" id="studentCheck" checked> Student
+    </label>
+
+    <label class="radio-inline">
+      <input type="radio" name="typer"
+
+      onClick="Hide('div2', this); Reveal('didfv1', this)" 
+       value = "teacher" id="techCheck">Teacher
+    </label>
+    
+
+</div>
+
+<script type="text/javascript">
+  function Reveal(it, box) {
+    var vis = (box.checked) ? "block" : "none";
+    document.getElementById(it).style.display = vis;
+  }
+
+  function Hide(it, box) {
+    var vis = (box.checked) ? "none" : "none";
+    document.getElementById(it).style.display = vis;
+  }
+</script>
+
+
+  <div class="row" id="didfv1" style="display: none">
+    <div id="ifTeacher" >
+  <label> Availability Time</label> <br>
+        From: <input id="ftime" name="from-time" type="time"> To: <input id="ttime" name="to-time" type="time">
+        <br>
+
+
+        
+        <br> 
+        <label> Desigination</label><br>
+        <input type="text" name="rank" id = "desig">
+
+
+      
+    </div>
+  </div>
+  <div class="row" id="div2" style="display: none">
+    <label> Registration Number</label><br>
+        <input type="text" name="regNum" id = "desig">
+    
+  </div>
+
+
+
+
+<form>
+
+   
+                                        <button type="submit" class="btn" style="color: white; font-weight: bold;width: 100px; height: 40px; background-color: black; align-self: center; margin-top: 20px;">Sign Up</button>
+                                        <br><br>
+<br>
+<br>
+<br>
+
+                                    </form>
+
+               </form>
+
+
+               <script type="text/javascript">
+
+function yesnoCheck() {
+    if (document.getElementById('techCheck').checked) {
+        document.getElementById('ifTeacher').style.visibility = 'visible';
+    }
+    else document.getElementById('ifTeacher').style.visibility = 'hidden';
+
+}
+
+</script>
+
+        
+      
+            </div>
+         </div>
+      </div>
+
+</body>
+</html>
