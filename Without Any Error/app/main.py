@@ -311,12 +311,14 @@ def inferencing():
     print(lenToday ,  "todayLenght")
     if(meetToday == ""):
         print("list is Today"  )
+    
     if(cBit6 == 100):
         tempPrompt = ctempTime6
     elif(cBit6 == 101):
          tempPrompt = ctempTime6
     elif(cBit6 == 102):
          tempPrompt = ctempTime6
+
     elif(cBit6 == 103):
          tempPrompt = ctempTime6
     elif(cBit6 == 104):
@@ -403,6 +405,7 @@ def inferencing():
         tempPrompt = ctempTime6
     elif(cBit6 == 447):
          tempPrompt = ctempTime6
+
     elif(cBit6 == 500):
          tempPrompt = ctempTime6
     elif(cBit6 == 501):
@@ -415,8 +418,10 @@ def inferencing():
         tempPrompt = ctempTime6
     elif(cBit6 == 505):
          tempPrompt = ctempTime6
+
     elif(cBit6 == 600):
          tempPrompt = ctempTime6
+
     elif(cBit6 == 700):
         tempPrompt = ctempTime6
     elif(cBit6 == 701):
@@ -425,6 +430,7 @@ def inferencing():
          tempPrompt = ctempTime6
     elif(cBit6 == 703):
          tempPrompt = ctempTime6
+
     elif(cBit6 == 800):
          tempPrompt = ctempTime6
     elif(cBit6 == 801):
@@ -432,13 +438,20 @@ def inferencing():
 
     elif(cBit6 == 0):
         tempPrompt = "Person not exist"
+
+
     respVar = tempS
     text_Show = text_Edit
     showText = text_Show
+  
     textSystem = str(ctempTime6) 
+    bltext = textSystem.replace('[',"")
+    brtext = bltext.replace(']',"")
+    ftext = brtext.replace('"',"")
+    
     temp = text
     ipi.append("User: "+temp)
-    ipi.append("System: " +textSystem) #add to list
+    ipi.append("System: " +ftext) #add to list
     print (ipi)
     for i in range(0, len(ipi)):
         print ("value is ",ipi[i])

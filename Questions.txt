@@ -1,0 +1,103 @@
+1.	Do I have meeting with Sana?
+2.	Do I have meeting at 2:00?
+3.	Do I have meeting on 22 January 2019?
+4.	Do I have meeting in UET?
+5.	Do I have meeting on Semantics?
+6.	Do I have meeting with Sana at 2:00?
+7.	Do I have meeting with Sana in UET?
+8.	Do I meeting with Sana on 5 June 2019?
+9.	Do I have meeting with Sana on Semantics?
+10.	Do I have meeting at 2:00 on 2 June 2019?
+11.	Do I have meeting at 2:00 in UET?
+12.	Do I have meeting on Semantics at 2:00?
+13.	Do I have meeting on 2 June 2019 in UET?
+14.	Do I have meeting on 2 june2019 on Semantics?
+15.	Do I have meeting with Sana in UET at 2:00?
+16.	Do I have meeting with Sana on 2 June 2019 at 2:00?
+17.	Do I have meeting with Sana at 2:00 on Semantics?
+18.	Do I have meeting with Sana on 2 JUNE 2019 on Sematics? 
+19.	Do I have meeting with Sana in UET on Sematics?
+20.	Do I have meeting with Sana in UETat 2:00 on 2 June 2019?
+21.	Do I have meeting with Sana at 2:00 in UET on Semantics?
+22.	Do I have meeting with Sana at 2:00 on 2 June 2019 on IOT?
+23.	Do I have meeting at 2:00 on 2 June 2019 in UET?
+24.	Do I have meeting in UET on IOT?
+25.	Do I have meeting with Sana on 2 June 2019?
+26.	DOo I have meeting with Sana in UET on IOT on 2 June 2019?
+27.	Do I have meeting with Sana in UET on 2 June 2019 at 2:00 on IOT?
+28.	Do I have meeting on 2 June 2019 at 2:00 in UET on IOT?
+29.	Which members are part of Semantics project?
+30.	Which students are doing work on IOT?
+31.	Which projects I am doing?
+32.	Which projects I am supervising?
+33.	Which projects I am doing with Sana?
+34.	Which students are from Lahore?
+35.	Which students are from Pakistan?
+36.	Which students are from UET?
+37.	Which students are doing CS?
+38.	Which students are doing PHD in CS?
+39.	Which students are doing MS in CS?
+40.	Which studentsare doing graduation?
+41.	Which students are doing PHD?
+42.	Which students are doing MSC?
+43.	Which students are from session 2015?
+
+45.	Which teachers are from UET?
+46.	Which teachers are from Pakistan?
+47.	Which teachers are from Karachi?
+48.	Which teachers are lecturar/professor?
+49.	Which teachers are lecturar/professor in UET?
+50.	Who are members of IOT?
+51.	Who is supervisor/first supervisor of IOT?
+52.	Who is cosupervisor/second supervisor of IOT?
+53.	How many students from Lahore?
+54.	How many students from America?
+55.	How many students from PU?
+56.	How many students from session 2015?
+57.	How many students have gmail/yahoo account?
+58.	How many teachers are lecturar/professor?
+59.	How many teachers are lecturar/professor in UET?
+
+61.	How many projects I am supervising?
+62.	When I have meeting with Sana?
+63.	When I have meeting with Sana in UET?
+64.	Where I have meeting with Sana?
+65.	Where I have meeting with Sana at 2:00?
+66.	Where I have meeting with Sana on 2 June 2019?
+67.	What is my password?
+68.	What is my registeration no./roll no?
+69.	What is my email?
+70.	What is my phone number?
+71.	What is email of Sana?
+72.	What is degree of Sana?
+73.	What is city of Sana?
+74.	What is country of Sana?
+75.	What is availability of Sir Awais?
+76.	What is email of Sir Awais?
+77.	What is rank/designation of Sir Awais?
+78.	What is email of Sana?
+79.	What is degree of Sana?
+80.	What is city of Sana?
+81.	What is country of Sana?
+82.	What is phone no. of Sana?
+83.	What is email of Awais?
+84.	What is designation of Awais?
+85.	What is city of Awais?
+86.	What is country name of Awais?
+87.	What is phone number of Awais?
+88.	What is location of my meeting with Sir Awais?
+89.	What is time of meeting with Sir Awais?
+90.	What is agenda of my meeting with Sana?
+91.	What is agenda of my meeting with Sana at 2:00?
+92.	What is agenda of my meeting with Sana on 2 June 2019?
+93.	What is agenda of my meeting with Sana in UET?
+94.	What is agenda of my meeting with Sana on 2 May 2019 at 2:00?
+95.	What is agenda of my meeting with Sana at 2:00 in UET?
+96.	What is agenda of my meeting on 2 June 2019 in UET?
+97.	What is agenda of my meeting with Sana in UET at 2:00 on 2 June 2019?
+98.	What are name of projects I am supervising?
+99.	What are name of projects I am doing with Sana?
+	
+	
+
+

@@ -100,17 +100,21 @@ class post:
     # print("node creates") 
     # print(post.data())
 #create relationship in graph DB node 
-  def createqueryrelation(subjct , objct , relation , propTime , propVenue , propDate):
+  def createqueryrelation(subjct , objct , relation , propTime , propVenue , propDate, randNo, agendaId):
     sub = subjct
     obj = objct
     rel_type = relation
     Time_prop = propTime
     Venue_prop = propVenue
     date_prop = propDate
-    query =  'MERGE (u1:MeetingRecord { name: {subs} }) MERGE (u2:MeetingRecord { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep} , date :{datep}}]-(u2)'
-    post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop , datep = date_prop )
-    # print ("relation created")
-    # print (post.data())
+    rand_No = randNo
+    agenda_Id = agendaId
+    query =  'MERGE (u1:MeetingRecord { name: {subs} }) MERGE (u2:MeetingRecord { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep} , date :{datep} , randNo: {ranN}, agendaID:{agId}}]-(u2)'
+    # MERGE (user:UserMeeting {name:"Jane"}) MERGE (friend:UserMeeting {name:"John"}) MERGE (user)-[r:KNOWS]->(friend)
+    # query = 'MERGE (u:UserMeeting{name :{subs}}) MERGE(r:UserMeeting{name:{objs}}) MERGE   (u)-[n:meet{name :{rel} ,time:{timep}, venue :{venuep} }]->(r)'
+    post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop , datep = date_prop, ranN = rand_No, agId = agenda_Id )
+    print ("relation created")
+    print (post.data())
 
 #set Agenda_ID
   def setAgendaId(subject , relation , agenId, randNo):
@@ -156,45 +160,45 @@ class post:
       return tempNameStore
 
 
+
 #check time , date , venue and object name and return bit value
   def validateInfo( institute , timep , date , objectv):
     cBit=0
-    if(objectv == "" and institute == "" and time == "" and date == ""):
+    if(objectv == "" and institute == "" and timep == "" and date == ""):
       cBit = '0000'
-    elif(objectv == "" and institute == "" and time == "" and date != ""):
+    elif(objectv == "" and institute == "" and timep == "" and date != ""):
       cBit = '0001'
-    elif(objectv == "" and institute == "" and time != "" and date == ""):
+    elif(objectv == "" and institute == "" and timep != "" and date == ""):
       cBit = '0010'
-    elif(objectv == "" and institute == "" and time != "" and date != ""):
+    elif(objectv == "" and institute == "" and timep != "" and date != ""):
       cBit = '0011'
-    elif(objectv == "" and institute != "" and time == "" and date == ""):
+    elif(objectv == "" and institute != "" and timep == "" and date == ""):
       cBit = '0100'
-    elif(objectv == "" and institute != "" and time == "" and date != ""):
+    elif(objectv == "" and institute != "" and timep == "" and date != ""):
       cBit = '0101'
-    elif(objectv == "" and institute == "" and time != "" and date != ""):
+    elif(objectv == "" and institute != "" and timep != "" and date == ""):
       cBit = '0110'
-    elif(objectv == "" and institute != "" and time != "" and date != ""):
+    elif(objectv == "" and institute != "" and timep != "" and date != ""):
       cBit = '0111'
-    elif(objectv != "" and institute == "" and time == "" and date == ""):
+    elif(objectv != "" and institute == "" and timep == "" and date == ""):
       cBit = '1000'
-    elif(objectv != "" and institute == "" and time == "" and date != ""):
+    elif(objectv != "" and institute == "" and timep == "" and date != ""):
       cBit = '1001'
-    elif(objectv != "" and institute == "" and time != "" and date == ""):
+    elif(objectv != "" and institute == "" and timep != "" and date == ""):
       cBit = '1010'
-    elif(objectv != "" and institute == "" and time != "" and date != ""):
+    elif(objectv != "" and institute == "" and timep != "" and date != ""):
       cBit = '1011'
-    elif(objectv != "" and institute != "" and time == "" and date == ""):
+    elif(objectv != "" and institute != "" and timep == "" and date == ""):
       cBit = '1100'
-    elif(objectv == "" and institute == "" and time == "" and date != ""):
+    elif(objectv != "" and institute != "" and timep == "" and date != ""):
       cBit = '1101'
-    elif(objectv != "" and institute != "" and time != "" and date == ""):
+    elif(objectv != "" and institute != "" and timep != "" and date == ""):
       cBit = '1110'
-    elif(objectv != "" and institute != "" and time != "" and date != ""):
+    elif(objectv != "" and institute != "" and timep != "" and date != ""):
       cBit = '0'
 
     return cBit
-
-#CHeck the null attributes and return bit value accordingly.
+#Check the null attributes and return bit value accordingly.
   def checkDo(person, institute, time, date, title):
     cBit=0
     if (person != "" and institute == "" and time == "" and date == "" and title == ""):
@@ -258,7 +262,7 @@ class post:
 
     return cBit
 
-#CHeck the when attributes and return bit value accordingly.
+#Check the null attributes and return bit value accordingly.
   def checkWhen(person,institute):
     cBit=0
     if (person != "" and institute == ""):
@@ -268,8 +272,7 @@ class post:
 
     return cBit
 
-#CHeck the what attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkWhat(person1,person2):
     cBit=0
     if(person1 !="" and person2 ==""):
@@ -278,33 +281,28 @@ class post:
       cBit = 801
     return cBit
 
-#CHeck the what location attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkWhatLoc(person,time, date, institute):
     cBit=0
     if (person != "" and institute == "" and time == "" and date == ""):
       cBit = 400
     return cBit
 
-#CHeck the whatTime attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkWhatTime(person,time, date, institute):
     cBit=0
     if (person != "" and institute == "" and time == "" and date == ""):
       cBit = 420
     return cBit
 
-#CHeck the who attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkWho(title):
     cBit=0
     if (title!=""):
       cBit = 600
     return cBit
 
-
-#CHeck the checkHow attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkHow(person1,institute,date,title):
     cBit=0
     if(person1 != "" and institute != "" and date == "" and title == ""):
@@ -318,9 +316,7 @@ class post:
     
     return cBit
 
-
-#CHeck the whatAgenda attributes and return bit value accordingly. 
-
+#Check the null attributes and return bit value accordingly.
   def checkWhatAgenda(person,time,date,institute):
     cBit=0
     if(person != "" and time == "" and date == "" and institute == ""):
@@ -341,8 +337,7 @@ class post:
       cBit = 447
     return cBit
 
-#CHeck the where attributes and return bit value accordingly.
-
+#Check the null attributes and return bit value accordingly.
   def checkWhere(person,time,date):
     cBit=0
     if (person != "" and time == "" and date ==""):
@@ -353,20 +348,19 @@ class post:
       cBit = 302 
     return cBit
 
-#CHeck the which attributes and return bit value accordingly.
-
-  def checkWhich(person1,person2,title,institute,degree,date):
+#Check the null attributes and return bit value accordingly.
+  def checkWhich(person1,person2,title,institute,date):
     cBit=0
-    if (person1 != "" and person2 == "" and title != "" and institute == "" and degree == "" and date == ""):
+    if (person1 != "" and person2 == "" and title != "" and institute == "" and date == ""):
       cBit = 500
-    if (person1 != "" and person2 == "" and title == "" and institute == "" and degree == "" and date == ""):
+    if (person1 != "" and person2 == "" and title == "" and institute == "" and date == ""):
       cBit = 501
-    if (person1 != "" and person2 != "" and title == "" and institute == "" and degree == "" and date == ""):
+    if (person1 != "" and person2 != "" and title == "" and institute == "" and date == ""):
       cBit = 502
-    if (person1 != "" and person2 == "" and title == "" and institute != "" and degree == "" and date == ""):
+    if (person1 != "" and person2 == "" and title == "" and institute != "" and date == ""):
       cBit = 503
-    if (person1 != "" and person2 == "" and title == "" and institute == "" and degree == "" and date == ""):
+    if (person1 != "" and person2 == "" and title == "" and institute == "" and date == ""):
       cBit = 504
-    if (person1 != "" and person2 == "" and title == "" and institute == "" and degree == "" and date != ""):
+    if (person1 != "" and person2 == "" and title == "" and institute == "" and date != ""):
       cBit = 505  
     return cBit

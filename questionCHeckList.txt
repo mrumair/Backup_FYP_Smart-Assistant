@@ -1,0 +1,15 @@
+1.	Do I have meeting with Sana?
+2.	Do I have meeting on Semantics?
+3.	Do I have meeting with Sana on 2 June 2019 at 2:00?
+4.	Which students are doing work on IOT?
+5.	Which studentsare doing graduation?
+6.	Which teachers are lecturar/professor in UET?
+7.	How many projects I am supervising?
+8.	What is degree of Sana?
+9.	What is agenda of my meeting with Sana?
+10.	What is time of meeting with Sir Awais?
+11.	What is availability of Sir Awais?
+
+
+
+I have a meeting with Batool Gohar at 28 March 2019 on 12:30 in UET.

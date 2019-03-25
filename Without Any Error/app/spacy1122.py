@@ -256,7 +256,9 @@ class text_spacy:
                 print("Flag-0 ... Adding the data")
                 post.createNodeQueru(subjectClear , "subject")
                 post.createNodeQueru(objectClear , "object")
-                post.createqueryrelation(subjectClear ,objectClear , relationclear ,timeProperty , institute ,relationpropertydate)
+                rand_Num = self.sRandNum
+                agendaID = 0
+                post.createqueryrelation(subjectClear ,objectClear , relationclear ,timeProperty , institute ,relationpropertydate, rand_Num, agendaID)
                 #global cBit3
                 #cBit3=1
             else:
