@@ -13,10 +13,7 @@
     <link rel="stylesheet" href="static/vendors/bootstrap/dist/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="static/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="static/vendors/themify-icons/css/themify-icons.css">
-   
-    <!-- <link rel="stylesheet" href="static/vendors/jqvmap/dist/jqvmap.min.css"> -->
-     <!-- <link rel="stylesheet" href="https://taniarascia.github.io/primitive/css/main.min.css">
- -->
+
 
     <link rel="stylesheet" href="static/css/primitive.css">
     <link rel="stylesheet" href="static/assets/css/style.css">
@@ -154,7 +151,7 @@
 
         <div class="col-sm-12" style="background-color: #fbfbfb">
                 <h3 style="color: #0197e1; background-color: #fbfbfb; margin-top: 
-                10px; margin-bottom: 20px;">Your Profile is</h2>
+                10px; margin-bottom: 20px;">You Can Edit Email , Contact and Password Only! </h2>
             </div>
 
 
@@ -170,8 +167,7 @@
    
     <div class="main">
          <div class="col-md-6">
-            <div class="login-form">
-                <form role="form" action="" method="POST"  class="registration-form">
+           
 
 
 
@@ -179,16 +175,19 @@
             <div class="form-group"  >
  <label> First Name:  </label>
 
-<input type="text" name="edit_fname" value="{{gloVar}}" style="width: 300px"  readonly="true">
+<input type="text" name="edit_fname" value="{{fname}}" style="width: 300px"  readonly="true">
 
 </div> 
 
-    <div class="form-group" >
-        <label> Last Name:  </label>
+ <div class="form-group"  >
+ <label> Last Name:  </label>
 
-<input type="text" name="edit_lname" value="{{lname}}"  style="width: 300px" readonly="true" >
-  
+<input type="text" name="edit_lname" value="{{lname}}" style="width: 300px"  readonly="true">
+
 </div> 
+
+
+
 
     <div class="form-group" >
 
@@ -211,12 +210,14 @@
   
 </div> 
 
-    <div class="form-group"  >
-        <label> Type of Person  </label>
+   
+   <div >
+ <label> Type:  </label>
 
-<input type="text" name="typo" value="{{typpOf}}"  readonly="true" style="width: 300px" >
+<input type="text" name="f_name" value="{{typpOf}}" readonly style="width: 300px" ">
   
-</div> 
+</div>
+
 
 
         <div style="margin-top: 10px">

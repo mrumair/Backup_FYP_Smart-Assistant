@@ -9,18 +9,13 @@ from dateutil import parser
 import time
 
 class DTValidate:
+	#FUNCTION THAT CONVERT THE TIME AND DATE AND CHECK VALIDATION
 	def CovertDate():
 		CurrentDate = datetime.now()
-
 		new = CurrentDate
-	
-		
 		cday = new.day
 		cmonth = new.month
 		cyear = new.year
-
-
-
 		if (cmonth == 1 ):
 			cmonth = "January"
 		if (cmonth == 2 ):
@@ -50,10 +45,6 @@ class DTValidate:
 		print(stringDate)
 		return stringDate
 
-
-
-
-
 	def CurrentDate():
 		Current = datetime.now()
 		print(Current)
@@ -64,7 +55,6 @@ class DTValidate:
 		stringDate = str(Current.month)+" "+str(Current.day)+" "+str(Current.year)
 		print(stringDate)
 		return stringDate
-
 
 	def DateValid(dateInput):
 		dateV = dateInput
@@ -98,47 +88,36 @@ class DTValidate:
 		print(currentDT)
 		print ("Current Hour is: %d" % currentDT.hour)
 		print ("Current Minute is: %d" % currentDT.minute)
-
 		b=time.strptime(TimeIn,'%H:%M')
 		print("time is " , b.tm_hour)
 		print("time mints is " , b.tm_min )
-
 		now=datetime.now()
 		print (now.month)
 		print (now.day)
 		print (now.year)
 		print (str(now.month)+"/"+str(now.day)+"/"+str(now.year))
-
-
 		dt = parser.parse(DateTime)
 		new = dt.date()
 		print(new) 
 		print (str(new.month)+"/"+str(new.day)+"/"+str(new.year))
-
 		print(new.year)
 		print(now.year)
-
 		if (new.year > now.year):
 			tBit = 11
 			print (tBit)
 			print("you enter th correct date ")
-		
 		elif(new.year == now.year and new.month > now.month ):
 			print ("Same Year but month should be greater")
 			tBit = 22
 			print (tBit)
-		
-		
 		elif(new.year == now.year and new.month == now.month and new.day > now.day):
 			print ("Same year same month but date greates")
 			tBit =33
 			print (tBit)
-
 		elif(new.year == now.year and new.month == now.month and new.day == now.day and b.tm_hour > currentDT.hour):
 			print("Year Month Date Same and Hour greates the Current")
 			tBit = 34
 			print(tBit)
-
 		elif(new.year == now.year and new.month == now.month and new.day == now.day and b.tm_hour == currentDT.hour and b.tm_min > currentDT.minute):
 			print("Year Month Date  Hour Same but minutes greates the Current")
 			tBit = 35
@@ -148,7 +127,7 @@ class DTValidate:
 			print (tBit)
 		return tBit
 
-
+#FUNCTION THAT SPLIT THE REGISTRATION NUMBER
 	def splitString(SplitData):
 		word = SplitData
 		afterSplit = word.split('-')
@@ -158,10 +137,3 @@ class DTValidate:
 		print(afterSplit)
 		return afterSplit
 		print ('Session is',Session , 'DEgree is', Degree ,'RollNo is',  RollNo)
-
-
-# month date year
-# DTValidate.splitString('2015-CS-160')
-# DTValidate.CovertDate()
-# DTValidate.CurrentDate()
-# DTValidate.DateValid("11 March 2019")

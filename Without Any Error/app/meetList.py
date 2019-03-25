@@ -1,3 +1,4 @@
+#IN MEETLIST.PY DATA IS INFER ON BASIS OF MEETING RECORD
 from neo4jrestclient import client
 from py2neo import Graph
 import re
@@ -9,6 +10,8 @@ graph1 = Graph("http://localhost:11005", username="neo4j", password="neo4j")
   
 
 KVBit = ""
+
+# RETURN THE LIST OF ALL MEETINGS ACCORDING TO USER
 def meet_list(p,rel):
     person_list=[]
     venue_list=[]
@@ -20,7 +23,6 @@ def meet_list(p,rel):
     for r in results:
         person_list=r[0]
         venue_list=r[1]
-        #date_list=r[2]
         time_list=r[2]
         member_list = r[3]
         date_list = r[4]
@@ -28,96 +30,50 @@ def meet_list(p,rel):
         meeting_list.append(meet)
     return meeting_list
 
-
-def meet_list_rescheduled(p,rel):
-    person_list=[]
-    
-    meeting_list= []
-    mlist_query='Match (a:MeetingRecord)-[r]-(b:MeetingRecord) where a.name={p_name} AND type(r)={rl} AND r.name={r_name} And r.venue is not null AND r.time is not null RETURN b.name' 
-    results = graph1.run(mlist_query,rl="meet",p_name=p,r_name=rel)
-    for r in results:
-        person_list=r[0]
-        print(person_list , "person_list")
-        
-        meet=(person_list)
-        print(meet , "meet")
-        meeting_list.append(meet)
-        print(meeting_list , "meeting_list")
-        uniquelist=[]
-        for x in meeting_list:
-            if x not in uniquelist:
-                uniquelist.append(x)
-
-                print(uniquelist , "Unique")
-    return uniquelist
-
-
-
-
+#SUGGESTED NAME ON BASIS OF NEXT MEETING SCHEDULING 
 def meet_dateTime_name(p,rel):
-    person_list=[]
-    
+    person_list=[]    
     meeting_list= []
     mlist_query='Match (a:MeetingRecord)-[r]-(b:MeetingRecord) where a.name={p_name} AND type(r)={rl} AND r.name={r_name} And r.venue is not null AND r.time is not null  RETURN b.name '
     results = graph1.run(mlist_query,rl="meet",p_name=p,r_name=rel )
     for r in results:
         person_list=r[0]
-        
-
-
-    # print(person_list , "person_list")
-        
         meet=(person_list)
         meeting_list.append(meet)
     return meeting_list
 
 
+#SUGGESTED TIME ON BASIS OF NEXT MEETING SCHEDULING 
 def meet_dateTime_time(p,rel):
-
     time_list = []
-   
-    
     meeting_list= []
     mlist_query='Match (a:MeetingRecord)-[r]-(b:MeetingRecord) where a.name={p_name} AND type(r)={rl} AND r.name={r_name} And r.venue is not null AND r.time is not null RETURN r.time ' 
     results = graph1.run(mlist_query,rl="meet",p_name=p,r_name=rel)
     for r in results:
-        
         time_list = r[0]
-   
-
-
-    # print(person_list , "person_list")
-        
         meet=(time_list)
         meeting_list.append(meet)
     return meeting_list
 
+#SUGGESTED DATE ON BASIS OF NEXT MEETING SCHEDULING 
 def meet_dateTime_date(p,rel):
     person_list=[]
     date_list =[]
     time_list = []
     venue_list = []
-    
     meeting_list= []
     mlist_query='Match (a:MeetingRecord)-[r]-(b:MeetingRecord) where a.name={p_name} AND type(r)={rl} AND r.name={r_name} And r.venue is not null AND r.time is not null  RETURN  r.date ' 
     results = graph1.run(mlist_query,rl="meet",p_name=p,r_name=rel )
     for r in results:
-       
         date_list= r[0]
-       
-    
-
-
-    # print(person_list , "person_list")
-        
         meet=(date_list)
         meeting_list.append(meet)
     return meeting_list
 
+#SUGGESTED VEUNUE ON BASIS OF NEXT MEETING SCHEDULING 
 def meet_dateTime_Venue(p,rel):
     
     venue_list = []
-    
     meeting_list= []
     mlist_query='Match (a:MeetingRecord)-[r]-(b:MeetingRecord) where a.name={p_name} AND type(r)={rl} AND r.name={r_name} And r.venue is not null AND r.time is not null  RETURN  r.venue' 
     results = graph1.run(mlist_query,rl="meet",p_name=p,r_name=rel )
@@ -128,7 +84,7 @@ def meet_dateTime_Venue(p,rel):
     return meeting_list
 
 
-
+#RESCHEDULE A MEETING
 def changeMeet(p ,  mname , time , date , venue  , stime , sdate , svenue , relName):
     print("Call Scheduling")
     print(p , mname ,time , date , venue , stime , sdate , svenue , relName , "ChangeMeet Data")
@@ -136,7 +92,7 @@ def changeMeet(p ,  mname , time , date , venue  , stime , sdate , svenue , relN
     results = graph1.run(mlist_query , rel = relName , rl = "meet" , p_name = p , rtime = time , rdate = date , rvenue = venue , rmname = mname  , rstime = stime , rsdate = sdate , rsvenue = svenue)
     print(results.data())
 
-
+# DDLETE A MEETING
 def deleteMeet(p , mname , time , date , venue):
     mlist_query = 'Match (a:MeetingRecord)-[r]- (b:MeetingRecord) where a.name={p_name}  AND b.name = {rmname}  AND r.date = {rdate} AND r.venue = {rvenue}  And r.time = {rtime} Delete  r'
     results = graph1.run(mlist_query , rl = "meet" , p_name = p , rtime = time , rdate = date , rvenue = venue , rmname = mname)
@@ -144,7 +100,7 @@ def deleteMeet(p , mname , time , date , venue):
     print("CAlled Deletion")
 
 
-
+# LIST OF CURRENT DATE MEETING
 
 def TodayMeetings(p):
     person_list=[]
@@ -167,8 +123,7 @@ def TodayMeetings(p):
     return meeting_list
 
 
-
-
+#LIST OF UPCOMMING MEETING THAT ARE TO BE RESCHEDULED 
 def ReschuleMeetingList(p):
     person_list=[]
     venue_list=[]
@@ -189,6 +144,7 @@ def ReschuleMeetingList(p):
         meeting_list.append(meet)
     return meeting_list
 
+# VALIDATE THE PREVIOUS MEETING AND RETURN IF DATA ON SAME TIME AND SAME DATE
 def KnowledgeValidate(p , time , date , venue  , relName):
     print("Call Knowledge")
     print(p ,time , date , venue ,  relName , "ChangeMeet Data")
@@ -207,4 +163,3 @@ def KnowledgeValidate(p , time , date , venue  , relName):
 
 nlp = spacy.load('en_core_web_sm')
 
-KnowledgeValidate ('abcd' , '16:20' , '16 March 2019','PU' , 'meeting')

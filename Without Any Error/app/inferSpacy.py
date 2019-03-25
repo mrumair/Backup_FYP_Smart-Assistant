@@ -6,7 +6,6 @@ import spacy
 import en_core_web_sm
 from tqdm import tqdm
 from model import post
-from model import BotBehaviour
 from model import *
 from infer_fnc import *
 from infer_fnc import inferencing

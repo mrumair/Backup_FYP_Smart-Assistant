@@ -1,3 +1,7 @@
+#IN MODEL.PY DATA STORE TO DATABASE AND INPUT VALUE IS TO BE VALIDATE
+#2015-CS-05
+#2015-CS-160
+#2015-CS-161
 from neo4jrestclient.client import GraphDatabase
 from py2neo.cypher import cypher_escape
 import time
@@ -87,14 +91,15 @@ class post:
     print ("Relation Created")
     print (post.data())
 
+# Create Node Function
   def createNodeQueru(subjects , propertys):
     node = subjects
     type_s = propertys
     query= 'MERGE (n:MeetingRecord {name:{sname} , type: {type}}) RETURN n.name' 
     post=graph.run(query,sname=node , type = propertys ) 
-    print("node creates") 
-    print(post.data())
-
+    # print("node creates") 
+    # print(post.data())
+#create relationship in graph DB node 
   def createqueryrelation(subjct , objct , relation , propTime , propVenue , propDate):
     sub = subjct
     obj = objct
@@ -104,9 +109,10 @@ class post:
     date_prop = propDate
     query =  'MERGE (u1:MeetingRecord { name: {subs} }) MERGE (u2:MeetingRecord { name:{objs} }) MERGE (u1)-[:meet {name: {rel} , time:{timep} , venue:{venuep} , date :{datep}}]-(u2)'
     post = graph.run (query, subs = sub , objs = obj , rel = rel_type  , timep = Time_prop , venuep = Venue_prop , datep = date_prop )
-    print ("relation created")
-    print (post.data())
+    # print ("relation created")
+    # print (post.data())
 
+#set Agenda_ID
   def setAgendaId(subject , relation , agenId, randNo):
     sub = subject
     rel = relation
@@ -118,47 +124,11 @@ class post:
     print(post.data())
 
 
-  def setProperty(labeln , propertyn):
-    lab= labeln
-    prop=propertyn
-    query = 'MERGE (n:MeetingRecord{name :{labs}}) set n.name = {pros}'
-    post = graph.run(query, labs=lab , pros = propo)
-    print ("Updating")
-    print(post.data())
-
-  def relationTime(subject ,relation , Time):
-    sub = subject
-    rel = relation
-    time = Time
-    query = 'MATCH (a:MeetingRecord{name : {subs}})-[r:meet{name:{rels}}]->() set r.Time = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
-    post = graph.run(query , subs = sub , rels = rel  , tim = time)
-    print ("time updated")
-    print(post.data())
-
-  def relationDate(subject ,relation , Date):
-    sub = subject
-    rel = relation
-    date = Date
-    query = 'MATCH (a:MeetingRecord{name : {subs}})-[r:meet{name:{rels}}]->() set r.Date_is = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
-    post = graph.run(query , subs = sub , rels = rel  , tim = date)
-    print ("date updated")
-    print(post.data())
-
-
-  def relationVenue(subject ,relation , Venue):
-    sub = subject
-    rel = relation
-    venue = Venue
-    query = 'MATCH (a:MeetingRecord{name : {subs}})-[r:meet{name:{rels}}]->() set r.Venue = {tim} RETURN r.Time, r.Date_is , r.Venue_is'
-    post = graph.run(query , subs = sub , rels = rel  , tim = venue)
-    print ("time updated")
-    print(post.data())
-
-
-  def ObjectSelection(abc):
+# get the list of object and match with userInput
+  def ObjectSelection(input_name):
     listStoreVar = []
 
-    name = abc
+    name = input_name
     
     print(name)
 
@@ -186,6 +156,7 @@ class post:
       return tempNameStore
 
 
+#check time , date , venue and object name and return bit value
   def validateInfo( institute , timep , date , objectv):
     cBit=0
     if(objectv == "" and institute == "" and time == "" and date == ""):
@@ -287,7 +258,7 @@ class post:
 
     return cBit
 
-
+#CHeck the when attributes and return bit value accordingly.
   def checkWhen(person,institute):
     cBit=0
     if (person != "" and institute == ""):
@@ -297,6 +268,8 @@ class post:
 
     return cBit
 
+#CHeck the what attributes and return bit value accordingly.
+
   def checkWhat(person1,person2):
     cBit=0
     if(person1 !="" and person2 ==""):
@@ -305,6 +278,7 @@ class post:
       cBit = 801
     return cBit
 
+#CHeck the what location attributes and return bit value accordingly.
 
   def checkWhatLoc(person,time, date, institute):
     cBit=0
@@ -312,11 +286,15 @@ class post:
       cBit = 400
     return cBit
 
+#CHeck the whatTime attributes and return bit value accordingly.
+
   def checkWhatTime(person,time, date, institute):
     cBit=0
     if (person != "" and institute == "" and time == "" and date == ""):
       cBit = 420
     return cBit
+
+#CHeck the who attributes and return bit value accordingly.
 
   def checkWho(title):
     cBit=0
@@ -324,6 +302,8 @@ class post:
       cBit = 600
     return cBit
 
+
+#CHeck the checkHow attributes and return bit value accordingly.
 
   def checkHow(person1,institute,date,title):
     cBit=0
@@ -337,6 +317,9 @@ class post:
       cBit=703
     
     return cBit
+
+
+#CHeck the whatAgenda attributes and return bit value accordingly. 
 
   def checkWhatAgenda(person,time,date,institute):
     cBit=0
@@ -358,6 +341,8 @@ class post:
       cBit = 447
     return cBit
 
+#CHeck the where attributes and return bit value accordingly.
+
   def checkWhere(person,time,date):
     cBit=0
     if (person != "" and time == "" and date ==""):
@@ -368,6 +353,7 @@ class post:
       cBit = 302 
     return cBit
 
+#CHeck the which attributes and return bit value accordingly.
 
   def checkWhich(person1,person2,title,institute,degree,date):
     cBit=0
@@ -384,55 +370,3 @@ class post:
     if (person1 != "" and person2 == "" and title == "" and institute == "" and degree == "" and date != ""):
       cBit = 505  
     return cBit
-
-
-
-  def createNode(sub,obj,rel, relp1, relp2, relp3, propertys, propertyo):
-    user = db.labels.create("Person")
-    u1= db.nodes.create(name = sub, position = propertys)
-    user.add(u1)
-    u2 = db.nodes.create(name = obj , position = propertyo)
-    user.add(u2)
-    u1.relationships.create(rel ,u2 , Time = relp1 , Date_is = relp2 , Venue_is = relp3)
-    return None
-
-class BotBehaviour:
-  def askQ(self):
-    listStore = list()
-    aName = ""
-    tempStore = ""
-    tempStoreN = ""
-    tempStoreT = ""
-    tempStoreV = ""
-    aTime = ""
-    aVenue = ""
-    #print("starting of the function")
-
-    q= 'MATCH (n:MeetingRecord) WHERE NOT (n)--() RETURN n'
-    results=graph.run(q)
-    print("Result:", list(results))
-
-    print("Resulting Node: ", list(results)[name]) 
-    #results = graph.query(q, returns=(client.Node))
-    for r in list(results):
-      tempStore = list(results)
-
-    print("Temp:", tempStore)
-
-    if tempStore != "":
-      print("found the empty node")
-      for r in results:
-        listStore.append("Who is %s ?" % (r[0]["name"]))
-    else:
-      print("not found the empty node")
-
-      a= 'start n=node(*) match (n:MeetingRecord)-[r:meet]-(:MeetingRecord) where exists(r.venue) return r'
-      #resultV = graph.query(a, returns=(client.Relationship))
-
-      b= 'start n=node(*) match (n:MeetingRecord)-[r:meet]-(:MeetingRecord) where exists(r.time) return r'
-      #resultT = graph.query(b, returns=(client.Relationship))
-
-      c= 'start n=node(*) match (n:MeetingRecord)-[r:meet]-(:MeetingRecord) where exists(r.name) return r'
- 
-    return listStore
-
